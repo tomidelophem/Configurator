@@ -1,965 +1,502 @@
-<t t-name="website.configurator">
- <t t-call="website.layout">
+<t t-name="website.configurator-be">
+    <t t-call="website.layout">
     <div id="wrap" class="oe_structure oe_empty">
-
-      <section class="oe_img_bg">
+    <style>
+              #configurator .question {
+        	    text-align: center;
+				padding-top: 1em;
+				padding-bottom: 2em;
+				border-top: 1px solid #4f453c;
+		      }
+		      #configurator .actions {
+			    position: relative;
+				text-align: center;
+				list-style: none;
+				padding: 0;
+		      }
+		      #configurator a.btn-buy,
+              #configurator a.btn-primary,
+              #configurator .actions li a {
+                color: #fff;
+                background-color: #00a1bc;
+                border-color: transparent;
+                border-radius: 50px;
+              }
+              #configurator .actions li {display: inline;}
+    	      #configurator .actions li a {
+			    display: inline-block;
+				margin: 0 5px;
+				padding-right: 15px;
+				margin-top: 1em;
+		      }
+    	      #configurator .actions li a.is-chosen {
+			    background: #aabe46;
+		      }
+		    </style>
+      <section class="s_text_block">
         <div class="container">
           <div class="row">
-            <div class="col-md-12"><h2 class="no-top" style="font-size: 3.25em; letter-spacing: 1px; text-align: center;">Vind de juiste thermostaat</h2><p style="margin-right: auto; margin-left: auto; font-size: 1.4em; line-height: 1.35em; max-width: 70%; text-align: center;">Weet je niet zeker welke thermostaat het beste past bij je woning en jouw woonsituatie? Maak dan gebruik van onze handige configurator.</p>
-&amp;nbsp;
-
-<div/>
-
-<h3 class="text-muted text-center"/>
-</div>
+            <div class="col-md-12 text-center mt16 mb32">
+              <h1>Vind de juiste slimme thermostaat</h1>
+              <h3 class="text-muted">Weet je niet zeker welke slimme thermostaat het beste past bij je woning en je woonsituatie? Maak dan gebruik van deze handige online keuzehulp.</h3>
+            </div>
           </div>
         </div>
       </section>
-      <section>
-        <div class="container"/>
+      <section id="configurator" class="s_text_block">
+        <div class="container">
+          <div class="row">
+            <div class="col-md-12 mb16 mt16">
+              <div class="inner" style="max-width: 640px; margin: 0 auto;">
+                <section id="Q1" class="question">
+                  <h3>Beschikt je woning over een WiFi-netwerk?</h3>
+                  <ul class="actions">
+                    <li>
+                      <a id="Q1_Wifi" class="btn btn-primary btn-dark is-chosen">Ja</a>
+                    </li>
+                    <li>
+                      <a id="Q1_No_Wifi" class="btn btn-primary btn-dark">Nee</a>
+                    </li>
+                  </ul>
+                </section>
+                <!-- /#Q1 -->
+                <section id="Q2" class="question" style="display: none;">
+                  <h3>Wil je de verwarming centraal regelen, of per kamer?</h3>
+                  <ul class="actions">
+                    <li>
+                      <a id="Q2_Centrally" class="btn btn-primary btn-dark">Centraal</a>
+                    </li>
+                    <li>
+                      <a id="Q2_Decentrally" class="btn btn-primary btn-dark">Per kamer</a>
+                    </li>
+                  </ul>
+                  <p>Niet helemaal zeker? <a id="Q2_video" href="javascript:void(0);">Laat Egbert het je in één minuut uitleggen</a>.</p>
+                  <div id="video_CvsD" style="display: none;">
+                    <div class="the-video" style="border-style: solid; border-width: 0px; border-color: white; background-color: white;">
+                      <iframe width="560" height="315" src="https://www.youtube.com/embed/KkVy-XTZCUc" frameborder="0"/>
+                    </div>
+                  </div>
+                </section>
+                <!-- /#Q2 -->
+                <section id="Q3A" class="question" style="display: none;">
+                  <h3>Welke verwarmingsbron heb je in je kamers?</h3>
+                  <ul class="actions">
+                    <li>
+                      <a id="Q3A_Radiators" class="btn btn-primary btn-dark">Radiatoren</a>
+                    </li>
+                    <li>
+                      <a id="Q3A_Underfloor_Heating" class="btn btn-primary btn-dark">Vloerverwarming</a>
+                    </li>
+                  </ul>
+                </section>
+                <!-- /#Q3A -->
+                <section id="Q3B" class="question" style="display: none;"><h3>Voldoen je radiatorknoppen aan de volgende specificaties?</h3>
+                <img class="question-img" src="/web/image/1993" style="max-width: 100%;"/>
+    	            <ul class="actions">
+                      <li>
+                        <a id="Q3B_Valves_Suitable" class="btn btn-primary btn-dark">Ja</a>
+                      </li>
+                      <li>
+                        <a id="Q3B_Valves_NotSuitable" class="btn btn-primary btn-dark">Nee</a>
+                      </li>
+                    </ul>
+		          </section>
+                <!-- /#Q3B -->
+                <section id="Q4" class="question" style="display: none;">
+                  <h3>Wil je ook je boiler aansturen met het systeem?</h3>
+                  <ul class="actions">
+                    <li>
+                      <a id="Q4_Control_Boiler" class="btn btn-primary btn-dark">Ja</a>
+                    </li>
+                    <li>
+                      <a id="Q4_Independent_Boiler" class="btn btn-primary btn-dark">Nee, alleen de radiatoren</a>
+                    </li>
+                  </ul>
+                </section>
+                <!-- /#Q4 -->
+                <section id="Q5A" class="question" style="display: none;">
+                  <h3>Hoe wordt je woning verwarmd?</h3>
+                  <ul class="actions">
+                    <li>
+                      <a id="Q5A_Central_Heating" class="btn btn-primary btn-dark">Centrale verwarming</a>
+                    </li>
+                    <li>
+                      <a id="Q5A_City_Heating" class="btn btn-primary btn-dark">Stadsverwarming</a>
+                    </li>
+                  </ul>
+                  <p>Geen van deze opties? Neem dan contact op met 50five via <a href="mailto:support@50five.com">support@50five.com</a>.</p>
+                </section>
+                <!-- /#Q5A -->
+                <section id="Q5B" class="question" style="display: none;">
+                  <h3>Heb je momenteel een thermostaat in gebruik?</h3>
+                  <ul class="actions">
+                    <li>
+                      <a id="Q5B_With_Thermostat" class="btn btn-primary btn-dark">Ja</a>
+                    </li>
+                    <li>
+                      <a id="Q5B_Without_Thermostat" class="btn btn-primary btn-dark">Nee</a>
+                    </li>
+                  </ul>
+                </section>
+                <!-- /#Q5B -->
+                <section id="Q5C" class="question" style="display: none;">
+                  <h3>Welke brandstof gerbruikt je verwarmingssysteem?</h3>
+                  <ul class="actions">
+                    <li>
+                      <a id="Q5C_Suitable_Fuel" class="btn btn-primary btn-dark">Gas, stookolie of biomassa</a>
+                    </li>
+                    <li>
+                      <a id="Q5C_Electrical_Fuel" class="btn btn-primary btn-dark">Elektrische verwarming</a>
+                    </li>
+                  </ul>
+                </section>
+                <!-- /#Q5C -->
+                <section id="Q5D" class="question" style="display: none;"><h3>Heb je een aan/uit of een OpenTherm cv-ketel?</h3><ul class="actions"><li><a id="Q5D_OnOff" class="btn btn-primary btn-dark">Aan/uit</a></li><li><a id="Q5D_OpenTherm" class="btn btn-primary btn-dark">OpenTherm</a></li></ul><p>Niet helemaal zeker? <a id="Q5D_video" href="javascript:void(0);">Laat Egbert het je in één minuut uitleggen</a>.</p>
+		            of<br/>
+		            <a href="/page/compatibility" target="_blank"> Vind je ketel in onze lijst! </a>
+		            <div id="video_OOvsOT" style="display: none; border-style: solid; border-width: 0px; border-color: white;"><div class="video-container" style="border-style: solid; border-width: 0px; border-color: white;"><div class="the-video" style="border-style: solid; border-width: 0px; border-color: white; background-color: white;"><iframe width="560" height="315" src="https://www.youtube.com/embed/Wc2VrGzcgyo" frameborder="0"/></div></div><a href="/page/compatibility" target="_blank"> Klik hier om de compatibiliteitslijst te zien! </a></div>
+		          </section>
+                <!-- /#Q5D -->
+                <section id="Q6" class="question" style="display: none;">
+                  <h3>Wil je je verwarmingssysteem op afstand bedienen via je mobiel of tablet?</h3>
+                  <ul class="actions">
+                    <li>
+                      <a id="Q6_Distant_Control" class="btn btn-primary btn-dark">Ja</a>
+                    </li>
+                    <li>
+                      <a id="Q6_Local_Control" class="btn btn-primary btn-dark">Nee</a>
+                    </li>
+                  </ul>
+                </section>
+                <!-- /#Q6 -->
+                <section id="Q7" class="question" style="display: none;">
+                  <h3>Vertel ons iets meer over je woning:</h3>
+                  <div class="question-field">
+                    <h4>Hoeveel kamers wil je apart kunnen aansturen met je systeem?</h4>
+                    <p>Van elke kamer is de temperatuur af te lezen en afzonderlijk instelbaar. Beperk je tot de kamers die je echt wilt aansturen om de investering zo laag mogelijk te houden.</p>
+                    <div class="range-field">
+                      <div class="field">
+                        <input type="range" class="rangeSlider" id="Q7_Number_Rooms" data-target="Q7A_show" name="rangeInput" min="1" max="12" step="1" value="0"/>
+                        <span class="value">1</span>
+                        <input type="hidden" id="Q7A_show" value="1"/>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="question-field">
+                    <h4>Hoeveel radiatoren in totaal wil je kunnen aansturen met je systeem?</h4>
+                    <p>Kamers hebben vaak meer dan één radiator. Vertel ons hoeveel radiatoren je in totaal wilt kunnen aansturen.</p>
+                    <div class="range-field">
+                      <div class="field">
+                        <input type="range" class="rangeSlider" id="Q7_Number_Radiators" data-target="Q7B_show" name="rangeInput" min="1" max="12" step="1" value="1"/>
+                        <span class="value">1</span>
+                        <input type="hidden" id="Q7B_show" value="1"/>
+                      </div>
+                    </div>
+                  </div>
+                  <ul class="actions">
+                    <li>
+                      <a id="Q7_Next" class="btn btn-primary btn-dark">Volgende stap</a>
+                    </li>
+                  </ul>
+                </section>
+                <!-- /#Q7 -->
+                <section id="Q8A" class="question" style="display: none;">
+                  <h3>Wil je je slimme thermostaat aan de muur kunnen hangen?</h3>
+                  <ul class="actions">
+                    <li>
+                      <a id="Q8A_WallMount" class="btn btn-primary btn-dark">Ja</a>
+                    </li>
+                    <li>
+                      <a id="Q8A_No_WallMount" class="btn btn-primary btn-dark">Nee</a>
+                    </li>
+                    <li>
+                      <a href="configurator" class="btn btn-primary btn-default"><i class="fa fa-refresh"/> Begin opnieuw</a>
+                    </li>
+                  </ul>
+                </section>
+                <!-- /#Q8A -->
+                <section id="Q8B" class="question" style="display: none;">
+                  <h3>Wil je de look &amp; feel van je slimme thermostaat kunnen instellen?</h3>
+                  <ul class="actions">
+                    <li>
+                      <a id="Q8B_FrontCovers" class="btn btn-primary btn-dark">Ja</a>
+                    </li>
+                    <li>
+                      <a id="Q8B_No_FrontCovers" class="btn btn-primary btn-dark">Nee</a>
+                    </li>
+                    <li>
+                      <a href="configurator" class="btn btn-primary btn-default"><i class="fa fa-refresh"/> Begin opnieuw</a>
+                    </li>
+                  </ul>
+                </section>
+                <!-- /#Q8B -->
+                <section id="SolutionBlock" class="question solutions" style="display: none;">
+                  <h3>Dit is wat wij voorstellen:</h3>
+                  <div id="NO" style="display: none;">
+		              Helaas, we hebben momenteel nog geen suggestie voor het juiste systeem... Neem dan contact op met 50five: <a href="/page/contactus" target="_blank"> klik hier om contact met ons op te nemen. </a>
+		            </div>
+                  <div id="NES" style="display: none;">
+                    <div class="product-card">
+                      <table>
+                        <tr>
+                          <td align="center" valign="center" width="150px">
+                            <img src="/website/image/ir.attachment/56596_eeed9d4/datas"/>
+                          </td>
+                          <td align="left">
+                            <h4>Nest Learning Thermostat</h4>
+                            <div style="color: green;">
+                              <small><span class="fa fa-check "/> Lerende thermostaat: programmeert zichzelf<br/>
+		                        <span class="fa fa-check "/> Ook voor warmwater    <br/>
+		                        <span class="fa fa-check "/> Voor OpenTherm of aan/uit cv-ketel    
+		                        </small>
+                            </div>
+                            <p class="pricing">Nu verkrijgbaar vanaf <strong>€ <t t-esc="request.env['product.product'].with_context(pricelist=1).search([('id','=',485)]).list_price"/> </strong></p>
+                            <br/>
+                          </td>
+                        </tr>
+                      </table>
+                      <p>
+                        <a data-type="NES" class="btn btn-primary" href="#" target="_blank">Bekijk product</a>
+                      </p>
+                    </div>
+                  </div>
+                  <!-- /#NES -->
+                  <div id="S500" style="display: none;">
+                    <div class="product-card">
+                      <table>
+                        <tr>
+                          <td align="center" valign="center" width="150px">
+                            <img src="/website/image/ir.attachment/25160_9a1a74d/datas"/>
+                          </td>
+                          <td align="left">
+                            <h4>Salus iT500 Internet Thermostaat</h4>
+                            <div style="color: green;">
+                              <small><span class="fa fa-check "/> Robuust en economisch<br/>
+		                        <span class="fa fa-check "/> 5 jaar fabrieksgarantie<br/>
+		                        <span class="fa fa-check "/> Zwart display</small>
+                            </div>
+                            <p class="pricing">Nu verkrijgbaar vanaf <strong>€ <t t-esc="request.env['product.product'].with_context(pricelist=1).search([('id','=',5)]).list_price"/> </strong></p>
+                            <br/>
+                          </td>
+                        </tr>
+                      </table>
+                      <p>
+                        <a data-type="S500" class="btn btn-primary" href="#">Bekijk product</a>
+                      </p>
+                    </div>
+                  </div>
+                  <!-- /#S500 -->
+                  <div id="NET" style="display: none;">
+                    <div class="product-card">
+                      <table>
+                        <tr>
+                          <td align="center" valign="center" width="150px">
+                            <img src="/web/image/product.template/5/image/300x300"/>
+                          </td>
+                          <td align="left">
+                            <h4>Netatmo Thermostaat</h4>
+                            <div style="color: green;">
+                              <small><span class="fa fa-check "/> Design<br/><span class="fa fa-check "/> Gemakkelijk te installeren<br/><span class="fa fa-check "/> Gedetailleerde verbruikgegevens</small>
+                              <br/>
+                            </div>
+                            <p class="pricing">Nu verkrijgbaar vanaf <strong>€ <t t-esc="request.env['product.product'].with_context(pricelist=1).search([('id','=',107)]).list_price"/> </strong></p>
+                            <br/>
+                          </td>
+                        </tr>
+                      </table>
+                      <p>
+                        <a data-type="NET" class="btn btn-primary" href="#" target="_blank">Bekijk product</a>
+                      </p>
+                    </div>
+                  </div>
+                  <!-- /#NET -->
+                  <div id="HRM" style="display: none;">
+                    <div class="product-card">
+                      <table>
+                        <tr>
+                          <td align="center" valign="center" width="150px">
+                            <img src="/web/image/product.template/61/image/300x300"/>
+                          </td>
+                          <td align="left">
+                            <h4>Honeywell Round Connected Modulation</h4>
+                            <div style="color: green;">
+                              <small><span class="fa fa-check "/> Vertrouwd en betrouwbaar merk<br/>
+		                        <span class="fa fa-check "/> Uitstekende kwaliteit<br/>
+		                        <span class="fa fa-check "/> Gebruiksvriendelijk<br/>
+		                        <span class="fa fa-check "/> IFTTT<br/>
+		                        <span class="fa fa-check "/> Geschikt voor OpenTherm ketels
+		                        </small>
+                            </div>
+                            <p class="pricing">Nu verkrijgbaar vanaf <strong>€ <t t-esc="request.env['product.product'].with_context(pricelist=1).search([('id','=',77)]).list_price"/> </strong></p>
+                            <br/>
+                          </td>
+                        </tr>
+                      </table>
+                      <p>
+                        <a data-type="HRM" class="btn btn-primary" href="#" target="_blank">Bekijk product</a>
+                      </p>
+                    </div>
+                  </div>
+                  <!-- /#HRM -->
+                  <div id="HRO" style="display: none;">
+                    <div class="product-card">
+                      <table>
+                        <tr>
+                          <td align="center" valign="center" width="150px">
+                            <img src="/web/image/product.template/62/image/300x300"/>
+                          </td>
+                          <td align="left">
+                            <h4>Honeywell Round Connected On-Off</h4>
+                            <div style="color: green;">
+                              <small><span class="fa fa-check "/> Vertrouwd en betrouwbaar merk<br/>
+		                        <span class="fa fa-check "/> Uitstekende kwaliteit<br/>
+		                        <span class="fa fa-check "/> Gebruiksvriendelijk<br/>
+		                        <span class="fa fa-check "/> IFTTT</small>
+                            </div>
+                            <p class="pricing">Nu verkrijgbaar vanaf <strong>€ <t t-esc="request.env['product.product'].with_context(pricelist=1).search([('id','=',78)]).list_price"/> </strong></p>
+                            <br/>
+                          </td>
+                        </tr>
+                      </table>
+                      <p>
+                        <a data-type="HRO" class="btn btn-primary" href="#">Bekijk product</a>
+                      </p>
+                    </div>
+                  </div>
+                  <!-- /#HRO -->
+                  <div id="SWAP" style="display: none;">
+		              Je verwarmingsinstallatie kan een complexere aanpassing nodig hebben voor ten aanzien van  een decentraal verwarmingssysteem. 
+		              <a href="/page/contactus" target="_blank">Aarzel niet om ons een e-mail te sturen </a>of bekijk onze installatieservice om te zien wat de mogelijkheden zijn voor jouw situatie.
+		              <a href="/shop/product/thermostaat-installatie-service-165">Meer informatie over onze installatieservice</a>.
+		              <br/><br/>
+		              We kunnen je wellicht ook een <b>centraal verwarmingssysteem </b>aanraden. 
+		              Start de configurator opnieuw en kies "centraal" om de compatibiliteit met je systeem te bekijken.
+					  <p><br/><a id="Reset" class="btn btn-default" href="#"><i class="fa fa-refresh"/> Begin opnieuw</a></p>
+		              
+		            </div>
+                  <!-- /it600 SOLUTIONS -->
+                  <!-- /EVOHOME SOLUTIONS -->
+                  <div id="HEV" class="product-card" style="display: none;">
+                    <div id="HEO" style="display: none;">
+                      <table>
+                        <tr>
+                          <td align="center" valign="center" width="150px">
+                            <img src="/web/image/product.template/10/image/300x300"/>
+                          </td>
+                          <td align="left">
+                            <h4>Honeywell Evohome On-Off Pakket</h4>
+                            <div style="color: green;">
+                              <small><span class="fa fa-check "/> Betrouwbaar merk <br/>
+		                        <span class="fa fa-check "/> Decentrale verwarming</small>
+                            </div>
+                            <p class="pricing">Nu verkrijgbaar vanaf <strong>€ <t t-esc="request.env['product.product'].with_context(pricelist=1).search([('id','=',15)]).list_price"/> </strong></p>
+                            <br/>
+                          </td>
+                        </tr>
+                      </table>
+                      <p>
+                        <a data-type="HEO" class="btn btn-primary" href="#">Bekijk product</a>
+                      </p>
+                    </div>
+                    <div id="HEM" style="display: none;">
+                      <table>
+                        <tr>
+                          <td align="center" valign="center" width="150px">
+                            <img src="/web/image/product.template/10/image/300x300"/>
+                          </td>
+                          <td align="left">
+                            <h4>Honeywell Evohome Modulation Pakket</h4>
+                            <div style="color: green;">
+                              <small><span class="fa fa-check "/> Bertrouwbaar merk<br/><span class="fa fa-check "/> Decentrale verwarming<br/><span class="fa fa-check "/> Geschikt voor OpenTherm ketels</small>
+                            </div>
+                            <p class="pricing">Nu verkrijgbaar vanaf <strong>€ <t t-esc="request.env['product.product'].with_context(pricelist=1).search([('id','=',16)]).list_price"/> </strong></p>
+                            <br/>
+                          </td>
+                        </tr>
+                      </table>
+                      <p>
+                        <a data-type="HEM" class="btn btn-primary" href="#">Bekijk product</a>
+                      </p>
+                    </div>
+                    <div id="4P" style="display: none;">
+                      <table>
+                        <tr>
+                          <td align="center" valign="center" width="150px">
+                            <img src="/web/image/2283"/>
+                            <br/>
+                            <img src="/web/image/product.template/63/image/300x300"/>
+                          </td>
+                          <td align="left">
+                            <h4>Met <span id="4P_Q"> </span> Voordeelpakket Evohome TRV (4 radiatorknoppen)</h4>
+                            <div style="color: green;">
+                              <small><span class="fa fa-check "/> Voordelige prijs<br/>
+		                        <span class="fa fa-check "/> Eén TRV per radiator die aangestuurd moet worden</small>
+                            </div>
+                            <p class="pricing">Nu verkrijgbaar vanaf <strong>€ <t t-esc="request.env['product.product'].with_context(pricelist=1).search([('id','=',79)]).list_price"/> </strong></p>
+                            <br/>
+                          </td>
+                        </tr>
+                      </table>
+                      <p>
+                        <a data-type="HTRV" class="btn btn-primary" href="#">Bekijk product</a>
+                      </p>
+                    </div>
+                    <div id="HTRV" style="display: none;">
+                      <table>
+                        <tr>
+                          <td align="center" valign="center" width="150px">
+                            <img src="/web/image/2283"/>
+                            <br/>
+                            <img src="/web/image/product.template/64/image/300x300"/>
+                          </td>
+                          <td align="left">
+                            <h4>Met <span id="HTRV_Q"> </span> Honeywell Evohome TRV</h4>
+                            <div style="color: green;">
+                              <small><span class="fa fa-check "/> Thermostaat in TRV ingebouwd <br/>
+		                        <span class="fa fa-check "/> Met display en handige draaiknop <br/>
+		                        <span class="fa fa-check "/> Eén TRV per radiator die aangestuurd moet worden</small>
+                            </div>
+                            <p class="pricing">Nu verkrijgbaar vanaf <strong>€ <t t-esc="request.env['product.product'].with_context(pricelist=1).search([('id','=',80)]).list_price"/> </strong></p>
+                            <br/>
+                          </td>
+                        </tr>
+                      </table>
+                      <p>
+                        <a data-type="HTRV" class="btn btn-primary" href="#">Bekijk product</a>
+                      </p>
+                    </div>
+                  </div>
+                  <!-- /#HEV -->
+                </section>
+                <!-- /#SolutionBlock -->
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+      <section class="s_text_block">
+        <div class="container">
+          <div class="row">
+            <div class="col-md-12 mb16 mt16">
+              <div align="center">
+                <p>
+                  <br/>
+                  <a id="Reset" class="btn btn-default" href="#"><i class="fa fa-refresh"/> Begin opnieuw</a>
+                </p>
+                <p>Kom je er toch niet helemaal uit? Kijk dan eens <a href="/page/hulp-service">in ons service-gedeelte</a>.</p>
+                <div id="DebugBlock" style="display: none;">
+                  <small> Debug </small>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
       </section>
     </div>
-    <section id="configurator" class="section-main">
-      <div class="container">
-        <div class="inner" style="border:1px solid #000000;">
-          <section id="Q1" class="question">
-            <h3><div t-if="request.context.get('lang')=='nl_BE'">Beschikt je woning over een WiFi-netwerk?</div>
-        	<div t-if="request.context.get('lang')=='fr_BE'">Disposez-vous d'un WiFi à la maison?</div>
-			</h3>
-            <ul class="actions">
-              <li>
-                <a id="Q1_Wifi" class="btn btn-buy btn-dark">Ja</a>
-              </li>
-              <li>
-                <a id="Q1_No_Wifi" class="btn btn-buy btn-dark">Nee</a>
-              </li>
-            </ul>
-          </section>
-		  
-          <!-- /#Q1 -->
-          <section id="Q2" class="question" style="display: none;">
-            <h3><div t-if="request.context.get('lang')=='nl_BE'">Wil je de verwarming centraal regelen, of per kamer?</div>
-			<div t-if="request.context.get('lang')=='fr_BE'">Voulez-vous régler la température de manière centralisée ou bien pièce par pièce ?</div></h3>
-            <ul class="actions">
-              <li>
-                <a id="Q2_Centrally" class="btn btn-buy btn-dark">Centraal</a>
-              </li>
-              <li>
-                <a id="Q2_Decentrally" class="btn btn-buy btn-dark">Per kamer</a>
-              </li>
-            </ul>
-			<div t-if="request.context.get('lang')=='nl_BE'">
-            <p>Niet helemaal zeker? <a id="Q2_video" href="javascript:void(0);">Laat Egbert het je in één minuut uitleggen</a>.</p>
-            <div id="video_CvsD" style="display: none;">
-              <div class="the-video" style="border-style: solid; border-width: 0px; border-color: white; background-color: white;">
-                <iframe width="560" height="315" src="https://www.youtube.com/embed/KkVy-XTZCUc?modestbranding=1" frameborder="0"/>
-              </div>
-            </div></div>
-			<div t-if="request.context.get('lang')=='fr_BE'">
-			<p>Vous n'êtes pas sûr ? <a id="Q2_video" href="javascript:void(0);">Cette courte vidéo</a> vous expliquera la différence entre les deux systèmes.</p>
-            <div id="video_CvsD" style="display: none;">
-              <div class="the-video" style="border-style: solid; border-width: 0px; border-color: white; background-color: white;">
-                <iframe width="560" height="315" src="//www.youtube.com/embed/KXkZYZiPIyA?modestbranding=1" frameborder="0"/>
-              </div>
-            </div>
-			</div>
-			
-          </section>
-          <!-- /#Q2 -->
-          <section id="Q3A" class="question" style="display: none;">
-            <h3><div t-if="request.context.get('lang')=='nl_BE'">Wat voor verwarmingsbron heb je in je kamers?</div>
-			<div t-if="request.context.get('lang')=='fr_BE'">De quel équipement de chauffage vos pièces disposent-elles ?</div></h3>
-            <ul class="actions">
-              <li>
-                <a id="Q3A_Radiators" class="btn btn-buy btn-dark">Radiatoren</a>
-              </li>
-              <li>
-                <a id="Q3A_Underfloor_Heating" class="btn btn-buy btn-dark">Vloerverwarming</a>
-              </li>
-            </ul>
-          </section>
-          <!-- /#Q3A -->
-          <section id="Q3B" class="question" style="display: none;">
-		  <h3><div t-if="request.context.get('lang')=='nl_BE'">Voldoen je radiatorknoppen aan de volgende specificaties?</div>
-			<div t-if="request.context.get('lang')=='fr_BE'">Vos têtes de radiateurs répondent-elles aux contraintes ci-dessous ?</div></h3>
-          <img class="question-img" src="/website/image/ir.attachment/18364_d7e6797/datas"/>
-            
-			<div t-if="request.context.get('lang')=='nl_BE'">Klik hier voor meer details over de compatibiliteit van thermostatische radiatorknoppen.</div>
-			<div t-if="request.context.get('lang')=='fr_BE'">Pour plus d'informations sur la compatibilité des vannes de radiateurs, cliquez ici.</div>          
-			
-			<ul class="actions"><li><a id="Q3B_Valves_Suitable" class="btn btn-buy btn-dark">Ja</a></li><li><a id="Q3B_Valves_NotSuitable" class="btn btn-buy btn-dark">Nee</a></li></ul>
-          </section>
-          <!-- /#Q3B -->
-          <section id="Q4" class="question" style="display: none;">
-            <h3>Wil je dat je boiler wordt aangestuurd door het systeem?</h3>
-            <ul class="actions">
-              <li>
-                <a id="Q4_Control_Boiler" class="btn btn-buy btn-dark">Ja</a>
-              </li>
-              <li>
-                <a id="Q4_Independent_Boiler" class="btn btn-buy btn-dark">Nee, alleen de radiatoren</a>
-              </li>
-            </ul>
-          </section>
-          <!-- /#Q4 -->
-          <section id="Q5A" class="question" style="display: none;">
-            <h3><div t-if="request.context.get('lang')=='nl_BE'">Hoe word je woning verwarmd?</div>
-			<div t-if="request.context.get('lang')=='fr_BE'">Comment votre habitation est-elle chauffée ?</div></h3>
-            <ul class="actions">
-              <li>
-                <a id="Q5A_Central_Heating" class="btn btn-buy btn-dark">Centrale verwarming</a>
-              </li>
-              <li>
-                <a id="Q5A_City_Heating" class="btn btn-buy btn-dark">Stadsverwarming</a>
-              </li>
-            </ul>
-            <p>
-			
-			<div t-if="request.context.get('lang')=='nl_BE'">
-			Geen van deze opties? Neem dan contact op met 50five via <a href="mailto:support@50five.com">support@50five.be</a>.</div>
-			<div t-if="request.context.get('lang')=='fr_BE'">Aucune de ces options ne s'applique ? <a href="mailto:support@50five.be">Contactez-nous !</a></div>
-			
-			</p>
-          </section>
-          <!-- /#Q5A -->
-          <section id="Q5B" class="question" style="display: none;">
-		  
-		  
-            <h3><div t-if="request.context.get('lang')=='nl_BE'">Heb je momenteel een thermostaat in gebruik?</div>
-			<div t-if="request.context.get('lang')=='fr_BE'">Avez-vous actuellement un thermostat ?</div></h3>
-            <ul class="actions">
-              <li>
-                <a id="Q5B_With_Thermostat" class="btn btn-buy btn-dark">Ja</a>
-              </li>
-              <li>
-                <a id="Q5B_Without_Thermostat" class="btn btn-buy btn-dark">Nee</a>
-              </li>
-            </ul>
-          </section>
-          <!-- /#Q5B -->
-          <section id="Q5C" class="question" style="display: none;">
-            <h3><div t-if="request.context.get('lang')=='nl_BE'">Wat voor brandstof verbruikt je verwarminggsysteem?</div>
-			<div t-if="request.context.get('lang')=='fr_BE'">Quel combustible votre chaudière utilise-t-elle ?</div></h3>
-            <ul class="actions">
-              <li>
-                <a id="Q5C_Suitable_Fuel" class="btn btn-buy btn-dark">Gas, Stookolie of Biomass</a>
-              </li>
-              <li>
-                <a id="Q5C_Electrical_Fuel" class="btn btn-buy btn-dark">Elektrische Verwarming</a>
-              </li>
-            </ul>
-          </section>
-          <!-- /#Q5C -->
-          <section id="Q5D" class="question" style="display: none;">
-		  <h3><div t-if="request.context.get('lang')=='nl_BE'">Heb je een Aan/Uit- of een voor OpenTherm geschikte boiler?</div>
-			<div t-if="request.context.get('lang')=='fr_BE'">Votre chaudière communique-t'elle via "On-Off" ou via "OpenTherm" ?</div></h3>
-		  
-		  <ul class="actions"><li><a id="Q5D_OnOff" class="btn btn-buy btn-dark">Aan/Uit</a></li>
-		  <li><a id="Q5D_OpenTherm" class="btn btn-buy btn-dark">OpenTherm</a></li></ul>
-		  
-		  <div t-if="request.context.get('lang')=='nl_BE'"><p>Niet helemaal zeker? <a id="Q5D_video" href="javascript:void(0);">Laat Egbert het je in één minuut uitleggen</a>.</p>
-            of<br/>
-            <a href="/page/compatibility" target="_blank"> Vind je ketel in onze lijst! </a>
-            <div id="video_OOvsOT" style="display: none; border-style: solid; border-width: 0px; border-color: white;"><div class="video-container" style="border-style: solid; border-width: 0px; border-color: white;"><div class="the-video" style="border-style: solid; border-width: 0px; border-color: white; background-color: white;"><iframe width="560" height="315" src="https://www.youtube.com/embed/Wc2VrGzcgyo" frameborder="0"/></div></div>
-			<a href="https://test-gdf.odoo.com/page/compatibility" target="_blank"> Klik hier om de compatibiliteitslijst te zien! </a></div></div>
-			
-			<div t-if="request.context.get('lang')=='fr_BE'"><a id="Q5D_video" href="javascript:void(0);"/><a href="/page/compatibility" target="_blank"> Trouvez votre chaudière dans notre liste ! </a></div>
-          </section>
-          <!-- /#Q5D -->
-
-          <section id="Q6" class="question" style="display: none;">
-            <h3>Wil je je verwarmingssysteem op afstand aan kunnen sturen (via mobiel of tablet)?</h3>
-            <ul class="actions">
-              <li>
-                <a id="Q6_Distant_Control" class="btn btn-buy btn-dark">Ja</a>
-              </li>
-              <li>
-                <a id="Q6_Local_Control" class="btn btn-buy btn-dark">Nee</a>
-              </li>
-            </ul>
-          </section>
-		  
-          <!-- /#Q6 -->
-          <section t-if="request.context.get('lang')=='nl_BE'" id="Q7" class="question" style="display: none;">
-            <h3>Vertel ons iets over je woning:</h3>
-            <div class="question-field" style="display: none;">
-              <h4>Hoeveel kamers wil je kunnen aansturen met je systeem?</h4>
-              <p>Van elke kamer is de temperatuur af te lezen en is afzonderlijk instelbaar. Focus je op de kamers die je echt wilt kunnen aansturen om de kosten te beperken.</p>
-              <div class="range-field" >
-                <div class="field">
-                  <input type="range" class="rangeSlider" id="Q7_Number_Rooms" data-target="Q7A_show" name="rangeInput" min="1" max="12" step="1" value="0"/>
-                  <span class="value">1</span>
-                  <input type="hidden" id="Q7A_show" value="1"/>
-                </div>
-              </div>
-            </div>
-            <div class="question-field">
-              <h4>Hoeveel radiatoren in totaal wil je kunnen aansturen met je systeem?</h4>
-              <p>Kamers hebben vaak meer dan één radiator. Vertel ons hoeveel radiatoren je in totaal wilt kunnen aansturen.</p>
-              <div class="range-field">
-                <div class="field">
-                  <input type="range" class="rangeSlider" id="Q7_Number_Radiators" data-target="Q7B_show" name="rangeInput" min="1" max="12" step="1" value="1"/>
-                  <span class="value">1</span>
-                  <input type="hidden" id="Q7B_show" value="1"/>
-                </div>
-              </div>
-            </div>
-            <ul class="actions">
-              <li>
-                <a id="Q7_Next" class="btn btn-buy btn-dark">Volgende stap</a>
-              </li>
-            </ul>
-          </section>
-          <!-- /#Q7 -->
-		  <section t-if="request.context.get('lang')=='fr_BE'" id="Q7" class="question" style="display: none;">
-            <h3>Dites-nous en plus à propos de votre habitation :</h3>
-            <div class="question-field" style="display: none;">
-              <h4>Dans combien de pièces souhaitez-vous contrôler le chauffage séparément ?</h4>
-              <p>Dans chacune de ces pièces, le chauffage pourra être réglé individuellement. Concentrez-vous uniquement sur les pièces les plus importantes.</p>
-              <div class="range-field" >
-                <div class="field">
-                  <input type="range" class="rangeSlider" id="Q7_Number_Rooms" data-target="Q7A_show" name="rangeInput" min="1" max="12" step="1" value="0"/>
-                  <span class="value">1</span>
-                  <input type="hidden" id="Q7A_show" value="1"/>
-                </div>
-              </div>
-            </div>
-            <div class="question-field">
-              <h4>Combien de radiateurs au total souhaitez-vous pouvoir contrôler ?</h4>
-              <p>Certaines de vos pièces ont certainement plus d'une radiateur. Indiquez ici combien de radiateurs au total doivent être contrôlés.</p>
-              <div class="range-field">
-                <div class="field">
-                  <input type="range" class="rangeSlider" id="Q7_Number_Radiators" data-target="Q7B_show" name="rangeInput" min="1" max="12" step="1" value="1"/>
-                  <span class="value">1</span>
-                  <input type="hidden" id="Q7B_show" value="1"/>
-                </div>
-              </div>
-            </div>
-            <ul class="actions">
-              <li>
-                <a id="Q7_Next" class="btn btn-buy btn-dark">Question suivante</a>
-              </li>
-            </ul>
-          </section>
-          <!-- /#Q7 -->
-          <section id="Q8A" class="question" style="display: none;">
-            <h3>Wil je je control panel aan de muur kunnen hangen?</h3>
-            <ul class="actions">
-              <li>
-                <a id="Q8A_WallMount" class="btn btn-buy btn-dark">Ja</a>
-              </li>
-              <li>
-                <a id="Q8A_No_WallMount" class="btn btn-buy btn-dark">Nee</a>
-              </li>
-              <li>
-                <a href="configurator" class="btn btn-buy btn-default"><i class="fa fa-refresh"/> Begin opnieuw</a>
-              </li>
-            </ul>
-          </section>
-          <!-- /#Q8A -->
-          <section id="Q8B" class="question" style="display: none;">
-            <h3>Wil je de look &amp; feel van je control panel kunnen instellen?</h3>
-            <ul class="actions">
-              <li>
-                <a id="Q8B_FrontCovers" class="btn btn-buy btn-dark">Ja</a>
-              </li>
-              <li>
-                <a id="Q8B_No_FrontCovers" class="btn btn-buy btn-dark">Nee</a>
-              </li>
-              <li>
-                <a href="configurator" class="btn btn-buy btn-default"><i class="fa fa-refresh"/> Begin opnieuw</a>
-              </li>
-            </ul>
-          </section>
-          <!-- /#Q8B -->
-		  
-          <!-- SOLUTIONS -->
-		  
-
-	
-	        <section id="SolutionBlock" class="question solutions" style="display: none;">
-			
-            <h3>
-			  <div t-if="request.context.get('lang')=='fr_BE'">Voici ce que nous vous suggérons :</div>
-			  <div t-if="request.context.get('lang')=='nl_BE'">Dit is wat wij voorstellen:</div>
-			</h3>
-            <div id="NO" style="display: none;">
-              <div t-if="request.context.get('lang')=='fr_BE'">Nous n'avons malheureusement pas de solution à vous proposer pour votre configuration... N'hésitez pas à nous contacter pour plus d'information : <a href="/page/website.contactus" target="_blank"> cliquez ici. </a></div>
-              <div t-if="request.context.get('lang')=='nl_BE'">Helaas, we hebben momenteel nog geen suggestie voor het juiste systeem... Neem dan contact op met 50five: <a href="/page/website.contactus" target="_blank"> klik hier om contact met ons op te nemen. </a></div>
-			</div>
-            
-            <div id="HRM" style="display: none;">
-              <div class="product-card">
-			  
-			    <div t-if="request.context.get('lang')=='fr_BE'">
-                <table>
-                  <tr>
-                    <td align="center" valign="center" width="150px">
-                      <img src="/website/image/ir.attachment/25161_933acba/datas"/>
-                    </td>
-                    <td align="left">
-                       <h4>Honeywell Round Connected</h4>
-                      <div style="color: green;">
-                        <small><span class="fa fa-check "/> Une marque fiable et renommée<br/>
-                        <span class="fa fa-check "/> Qualité exceptionelle<br/>
-                        <span class="fa fa-check "/> Convivial et ergonomique<br/>
-                        <span class="fa fa-check "/> IFTTT<br/>
-                        <span class="fa fa-check "/> Cestiné aux chaudières compatibles avec OpenTherm
-                        </small>
-                      </div>
-                      <p class="pricing">Disponible pour <strong>€ <t t-esc="request.env['product.product'].with_context(pricelist=49).search([('id','=',121)]).price"/> </strong></p>
-                      <br/>
-                    </td>
-                  </tr>
-                </table>
-                <p>
-                  <a data-type="HRM" class="btn btn-buy" href="#" target="_blank">Voir ce produit</a>
-                </p>
-				</div>
-				
-				<div t-if="request.context.get('lang')=='nl_BE'">
-				  <table>
-                  <tr>
-                    <td align="center" valign="center" width="150px">
-                      <img src="/website/image/ir.attachment/25161_933acba/datas"/>
-                    </td>
-                    <td align="left">
-                       <h4>Honeywell Round Connected Modulation</h4>
-                      <div style="color: green;">
-                        <small><span class="fa fa-check "/> Vertrouwd en betrouwbaar merk<br/>
-                        <span class="fa fa-check "/> Uitstekende kwaliteit<br/>
-                        <span class="fa fa-check "/> Gebruiksvriendelijk<br/>
-                        <span class="fa fa-check "/> IFTTT<br/>
-                        <span class="fa fa-check "/> Geschikt voor OpenTherm ketels
-                        </small>
-                      </div>
-                      <p class="pricing">Nu verkrijgbaar vanaf <strong>€ <t t-esc="request.env['product.product'].with_context(pricelist=49).search([('id','=',121)]).price"/> </strong></p>
-                      <br/>
-                    </td>
-                  </tr>
-                </table>
-                <p>
-                  <a data-type="HRM" class="btn btn-buy" href="#" target="_blank">Bekijk product</a>
-                </p>
-				</div>
-				
-              </div>
-            </div>
-            <!-- /#HRM -->
-            
-											<div id="HRO" style="display: none;">
-              <div class="product-card">
-                
-				<div t-if="request.context.get('lang')=='fr_BE'">
-				<table>
-                  <tr>
-                    <td align="center" valign="center" width="150px">
-                      <img src="/website/image/ir.attachment/25161_933acba/datas"/>
-                    </td>
-                    <td align="left">
-                      <h4>Honeywell Round Connected WIRELESS</h4>
-                      <div style="color: green;">
-                        <small><span class="fa fa-check "/> Qualité exceptionelle<br/>
-                        <span class="fa fa-check "/> Convivial et ergonomique<br/>
-                        <span class="fa fa-check "/> IFTTT<br/>
-						<span class="fa fa-check "/> Sans-fil<br/>
-						</small>
-                      </div>
-                      <p class="pricing">Disponible pour <strong>€ <t t-esc="request.env['product.product'].with_context(pricelist=49).search([('id','=',159)]).price"/> </strong></p>
-                      <br/>
-                    </td>
-                  </tr>
-                </table>
-                <p>
-                  <a data-type="HRO" class="btn btn-buy" href="#">Voir ce produit</a>
-                </p>
-				</div>
-				<div t-if="request.context.get('lang')=='nl_BE'">
-				  <table>
-                  <tr>
-                    <td align="center" valign="center" width="150px">
-                      <img src="/website/image/ir.attachment/25161_933acba/datas"/>
-                    </td>
-                    <td align="left">
-                      <h4>Honeywell Round Connected On-Off</h4>
-                      <div style="color: green;">
-                        <small><span class="fa fa-check "/> Vertrouwd en betrouwbaar merk<br/>
-                        <span class="fa fa-check "/> Uitstekende kwaliteit<br/>
-                        <span class="fa fa-check "/> Gebruiksvriendelijk<br/>
-                        <span class="fa fa-check "/> IFTTT</small>
-                      </div>
-                      <p class="pricing">Nu verkrijgbaar vanaf <strong>€ <t t-esc="request.env['product.product'].with_context(pricelist=49).search([('id','=',159)]).price"/> </strong></p>
-                      <br/>
-                    </td>
-                  </tr>
-                </table>
-                <p>
-                  <a data-type="HRO" class="btn btn-buy" href="#">Bekijk product</a>
-                </p>
-				</div>
-				
-              </div>
-            </div>
-            <!-- /#HRO -->
-			
-			<div id="BOX" style="display: none;">
-              <div class="product-card">
-                
-				<div t-if="request.context.get('lang')=='fr_BE'">
-				<table>
-                  <tr>
-                    <td align="center" valign="center" width="150px">
-                      <img src="/website/image/ir.attachment/46527_1e35de6/datas"/>
-                    </td>
-                    <td align="left">
-                      <h4>Thermostat et moniteur d'énergie boxx</h4>
-                      <small><div style="color: green;">
-                        <span class="fa fa-check "/> Bien plus qu'un thermostat !<br/>
-                        <span class="fa fa-check "/> Mesure votre conso de gaz et d'électricité<br/>
-                        <span class="fa fa-check "/> Compatible avec les ampoules Philips Hue<br/>
-						<span class="fa fa-check "/> Compatible avec les prises intelligentes Fibaro<br/>
-						<span class="fa fa-check "/> Installation professionelle incluse<br/>
-						
-                      </div>
-					  <span class="fa fa-check "/> Compatible sous certaines conditions<br/>
-					  </small>
-                      <p class="pricing">Disponible pour <strong>€ <t t-esc="request.env['product.product'].with_context(pricelist=49).search([('id','=',413)]).price"/> </strong></p>
-                      <br/>
-                    </td>
-                  </tr>
-                </table>
-                <p>
-                  <a data-type="BOX" class="btn btn-buy" href="#">Voir ce produit</a>
-                </p>
-				</div>
-				<div t-if="request.context.get('lang')=='nl_BE'">
-				  <table>
-                  <tr>
-                    <td align="center" valign="center" width="150px">
-                      <img src="/website/image/ir.attachment/46527_1e35de6/datas"/>
-                    </td>
-                    <td align="left">
-                      <h4>boxx thermostaat &#38; energiemonitor </h4>
-						<small><div style="color: green;">
-						<span class="fa fa-check "/> Veel meer dan een thermostaat!<br/>
-                        <span class="fa fa-check "/> Meet je stroom- en gasverbruik<br/>
-                        <span class="fa fa-check "/> Werkt samen met Philips Hue verlichting<br/>
-						<span class="fa fa-check "/> Werkt samen met Fibaro Smart Plugs<br/>
-						<span class="fa fa-check "/> Inclusief installatie door een professional<br/>
-						
-                      </div>
-					  <span class="fa fa-check "/> Compatibiliteit onder bepaalde voorwaarden<br/>
-					  </small>	
-                      <p class="pricing">Nu verkrijgbaar vanaf <strong>€ <t t-esc="request.env['product.product'].with_context(pricelist=49).search([('id','=',413)]).price"/> </strong></p>
-                      <br/>
-                    </td>
-                  </tr>
-                </table>
-                <p>
-                  <a data-type="BOX" class="btn btn-buy" href="#">Bekijk product</a>
-                </p>
-				</div>
-				
-              </div>
-            </div>
-			
-			
-			
-			
-            <div id="NET" style="display: none;">
-              <div class="product-card">
-         
-				<div t-if="request.context.get('lang')=='fr_BE'">
-				<table>
-                  <tr>
-                    <td align="center" valign="center" width="150px">
-                      <img src="/website/image/ir.attachment/25153_bf498bd/datas"/>
-                    </td>
-                    <td align="left">
-                      <h4>Thermostat Netatmo</h4>
-                      <div style="color: green;">
-                        <small><span class="fa fa-check "/> Design<br/>
-						<span class="fa fa-check "/> Facile à installer<br/>
-						<span class="fa fa-check "/> Toutes vos données historiques disponibles sous forme de graphiques</small>
-                        <br/>
-                      </div>
-                      <p class="pricing">Disponible pour <strong>€ <t t-esc="request.env['product.product'].with_context(pricelist=49).search([('id','=',75)]).price"/> </strong></p>
-                      <br/>
-                    </td>
-                  </tr>
-                </table>
-                <p>
-                  <a data-type="NET" class="btn btn-buy" href="#" target="_blank">Voir ce produit</a>
-                </p>
-				</div>
-				
-				<div t-if="request.context.get('lang')=='nl_BE'">
-				  <table>
-                  <tr>
-                    <td align="center" valign="center" width="150px">
-                      <img src="/website/image/ir.attachment/25153_bf498bd/datas"/>
-                    </td>
-                    <td align="left">
-                      <h4>Netatmo Thermostaat</h4>
-                      <div style="color: green;">
-                        <small><span class="fa fa-check "/> Design<br/><span class="fa fa-check "/> Gemakkelijk te installeren<br/><span class="fa fa-check "/> Gedetailleerde verbruikgegevens</small>
-                        <br/>
-                      </div>
-                      <p class="pricing">Nu verkrijgbaar vanaf <strong>€ <t t-esc="request.env['product.product'].with_context(pricelist=49).search([('id','=',75)]).price"/> </strong></p>
-                      <br/>
-                    </td>
-                  </tr>
-                </table>
-                <p>
-                  <a data-type="NET" class="btn btn-buy" href="#" target="_blank">Bekijk product</a>
-                </p>
-				</div>
-				
-              </div>
-            </div>
-            <!-- /#NET -->
-            <div id="S500" style="display: none;">
-              <div class="product-card">
-                <div t-if="request.context.get('lang')=='fr_BE'">
-				<table>
-                  <tr>
-                    <td align="center" valign="center" width="150px">
-                <img src="/website/image/ir.attachment/25160_9a1a74d/datas"/>
-                    </td>
-                    <td align="left">
-                      <h4>Thermostat Connecté Salus iT500</h4>
-                      <div style="color: green;">
-                        <small><span class="fa fa-check "/> Robuste et bon marché<br/>
-                        <span class="fa fa-check "/> 5 ans de garantie<br/>
-                        <span class="fa fa-check "/> Ecran noir passe-partout</small>
-                      </div>
-                      <p class="pricing">Disponible pour <strong>€ <t t-esc="request.env['product.product'].with_context(pricelist=49).search([('id','=',304)]).price"/> </strong></p>
-                      <br/>
-                    </td>
-                  </tr>
-                </table>
-                <p>
-                  <a data-type="S500" class="btn btn-buy" href="#">Voir ce produit</a>
-                </p>
-				</div>
-				
-				<div t-if="request.context.get('lang')=='nl_BE'">
-				  <table>
-                  <tr>
-                    <td align="center" valign="center" width="150px">
-                      
-                
-                <img src="/website/image/ir.attachment/25160_9a1a74d/datas"/>
-                    </td>
-                    <td align="left">
-                      <h4>Salus iT500 Internet Thermostaat</h4>
-                      <div style="color: green;">
-                        <small><span class="fa fa-check "/> Robuust en economisch<br/>
-                        <span class="fa fa-check "/> 5 jaar fabrieksgarantie<br/>
-                        <span class="fa fa-check "/> Zwart display</small>
-                      </div>
-                      <p class="pricing">Nu verkrijgbaar vanaf <strong>€ <t t-esc="request.env['product.product'].with_context(pricelist=49).search([('id','=',304)]).price"/> </strong></p>
-                      <br/>
-                    </td>
-                  </tr>
-                </table>
-                <p>
-                  <a data-type="S500" class="btn btn-buy" href="#">Bekijk product</a>
-                </p>
-				</div>
-				
-              </div>
-            </div>
-            <!-- /#S500 -->
-            <div id="SWAP" style="display: none;">
-			  <div t-if="request.context.get('lang')=='fr_BE'">
-              Votre système de chauffage peut nécessiter des adaptations conséquentes pour installer un système décentralisé. 
-              <a href="/page/website.contactus" target="_blank">N'hésitez pas à nous contacter pour plus d'info !</a><br/>
-			  <br/>
-              Nous pouvons sinon vous recommander d'opter pour un thermostat centralisé. 
-              Recommencez ce configurateur en choisissant l'option "centralisé" pour vérifier la compatibilité de votre système !
-              <br/>
-			  </div>
-			  <div t-if="request.context.get('lang')=='nl_BE'">
-			    Je verwarmingsinstallatie kan een complexere aanpassing nodig hebben voor ten aanzien van  een decentraal verwarmingssysteem. 
-              <a href="/page/website.contactus" target="_blank">Aarzel niet om ons een e-mail te sturen !</a><br/>
-			  <br/>
-              We kunnen je wellicht ook een centraal verwarmingssysteem aanraden. 
-              Start de configurator opnieuw en kies "centraal" om de compatibiliteit met je systeem te bekijken !
-              <br/>
-			  </div>
-			  
-            </div>
-			
-            <!-- /it600 SOLUTIONS -->
-            <div id="SiT600" class="product-card" style="display: none;">
-              <div id="SB2" style="display: none;">
-                <table>
-                  <tr>
-                    <td align="center" valign="center" width="150px">
-                      <img src="/website/image/ir.attachment/25157_72e95d6/datas"/>
-                    </td>
-                    <td align="left">
-                      <h4>Salus Kamer Verwarming Pakket</h4>
-                      <div style="color: green;">
-                        <small><span class="fa fa-check "/> 5 jaar garantie<br/>
-                        <span class="fa fa-check "/> Decentrale verwarming<br/></small>
-                      </div>
-                      <small><span class="fa fa-check "/> Geen ketel- en afstandbediening (App)</small>
-                      <p class="pricing">Nu verkrijgbaar vanaf <strong>€ <t t-esc="request.env['product.product'].with_context(pricelist=49).search([('id','=',257)]).price"/> </strong></p>
-                      <br/>
-                    </td>
-                  </tr>
-                </table>
-                <p>
-                  <a data-type="SB2" class="btn btn-buy" href="#">Bekijk product</a>
-                </p>
-              </div>
-              
-              <div id="SA2" style="display: none;">
-                <table>
-                  <tr>
-                    <td align="center" valign="center" width="150px">
-                      <img src="/website/image/ir.attachment/25155_3a041fe/datas"/>
-                    </td>
-                    <td align="left">
-                      <h4>Salus CV Pakket</h4>
-                      <div style="color: green;">
-                        <small><span class="fa fa-check "/> 5 jaar garantie<br/>
-                        <span class="fa fa-check "/> Decentrale verwarming<br/></small>
-                      </div>
-                      <small><span class="fa fa-check "/> Geen afstandbediening (app): programmeren moet op het scherm van de thermostaat</small>
-                      <p class="pricing">Nu verkrijgbaar vanaf <strong>€ <t t-esc="request.env['product.product'].with_context(pricelist=49).search([('id','=',266)]).price"/> </strong></p>
-                      <br/>
-                    </td>
-                  </tr>
-                </table>
-                <p>
-                  <a data-type="SA2" class="btn btn-buy" href="#">Bekijk product</a>
-                </p>
-              </div>
-              
-              <div id="SB1" style="display: none;">
-                <table>
-                  <tr>
-                    <td align="center" valign="center" width="150px">
-                      <img src="/website/image/ir.attachment/25156_90db1f8/datas"/>
-                    </td>
-                    <td align="left">
-                      <h4>Salus Internet Pakket</h4>
-                      <div style="color: green;">
-                        <small><span class="fa fa-check "/> 5 jaar garantie<br/>
-                        <span class="fa fa-check "/> Decentrale verwarming<br/>
-                        <span class="fa fa-check "/> Programmeerbaar op smartphone/tablet en afstandbediening</small>
-                      </div>
-                      <small><span class="fa fa-check "/> Geen ketelbediening</small>
-                      <p class="pricing">Nu verkrijgbaar vanaf <strong>€ <t t-esc="request.env['product.product'].with_context(pricelist=49).search([('id','=',263)]).price"/> </strong></p>
-                      <br/>
-                    </td>
-                  </tr>
-                </table>
-                <p>
-                  <a data-type="SB1" class="btn btn-buy" href="#">Bekijk product</a>
-                </p>
-              </div>
-              <div id="SA1" style="display: none;">
-                <table>
-                  <tr>
-                    <td align="center" valign="center" width="150px">
-                      <img src="/website/image/ir.attachment/25154_d29ea94/datas"/>
-                    </td>
-                    <td align="left">
-                      <h4>Salus Internet &amp; CV Pakket</h4>
-                      <div style="color: green;">
-                        <small><span class="fa fa-check "/> 5 jaar garantie<br/>
-                        <span class="fa fa-check "/> Decentrale verwarming<br/>
-                        <span class="fa fa-check "/> Programmeerbaar op smartphone/tablet en afstandbediening (App)<br/>
-                        <span class="fa fa-check "/> Met ketelbediening</small>
-                      </div>
-                      <p class="pricing">Nu verkrijgbaar vanaf <strong>€ <t t-esc="request.env['product.product'].with_context(pricelist=49).search([('id','=',260)]).price"/> </strong></p>
-                      <br/>
-                    </td>
-                  </tr>
-                </table>
-                <p>
-                  <a data-type="SA1" class="btn btn-buy" href="#">Bekijk product</a>
-                </p>
-              </div>
-              <div id="STH" style="display: none;">
-                <table>
-                  <tr>
-                    <td align="center" valign="center" width="150px">
-                      <img src="/website/image/ir.attachment/25164_5e4b6e1/datas"/>
-                      <br/>
-                      <img src="/website/image/ir.attachment/25158_8b2bbdc/datas"/>
-                    </td>
-                    <td align="left">
-                      <h4>Met <span id="STH_Q"> </span> additionele Salus iT600 Extra Kamer Pakketten</h4>
-                      <div style="color: green;">
-                        <small><span class="fa fa-check "/> Om de temperatuur te meten en programmeren<br/>
-                        <span class="fa fa-check "/> Plaats één thermostaat in elke afzonderlijke ruimte</small>
-                      </div>
-                      <p class="pricing">Nu verkrijgbaar vanaf <strong>€ <t t-esc="request.env['product.product'].with_context(pricelist=49).search([('id','=',60)]).price"/> </strong></p>
-                      <br/>
-                    </td>
-                  </tr>
-                </table>
-                <p>
-                  <a data-type="STH" class="btn btn-buy" href="#">Bekijk product</a>
-                </p>
-              </div>
-              <div id="STRV" style="display: none;">
-                <table>
-                  <tr>
-                    <td align="center" valign="center" width="150px">
-                      <img src="/website/image/ir.attachment/25164_5e4b6e1/datas"/>
-                      <br/>
-                      <img src="/website/image/ir.attachment/25162_7c35b3c/datas"/>
-                    </td>
-                    <td align="left">
-                      <h4>Met <span id="STRV_Q"> </span> additionele Salus iT600 TRV</h4>
-                      <div style="color: green;">
-                        <small><span class="fa fa-check "/> Om de radiator draadloos aan te sturen<br/>
-                        <span class="fa fa-check "/> Plaats één TRV op elke radiator die aangestuurd moet worden (max 3 per thermostaat)</small>
-                      </div>
-                      <p class="pricing">Nu verkrijgbaar vanaf <strong>€ <t t-esc="request.env['product.product'].with_context(pricelist=49).search([('id','=',53)]).price"/> </strong></p>
-                      <br/>
-                    </td>
-                  </tr>
-                </table>
-                <p>
-                  <a data-type="STRV" class="btn btn-buy" href="#">Bekijk product</a>
-                </p>
-              </div>
-            </div>
-            <!-- /EVOHOME SOLUTIONS -->
-            <div id="HEV" class="product-card" style="display: none;">
-			  <div t-if="request.context.get('lang')=='fr_BE'" id="HEO" style="display: none;">
-				<table>
-                  <tr>
-                    <td align="center" valign="center" width="150px">
-                      <img src="/website/image/ir.attachment/25159_f9c32f6/datas"/>
-                    </td>
-                    <td align="left">
-                      <h4>Honeywell Evohome Single Zone On-Off</h4>
-                      <div style="color: green;">
-                        <small><span class="fa fa-check "/> Marque fiable et renommée <br/>
-                        <span class="fa fa-check "/> Un système décentralisé</small>
-                      </div>
-                      <p class="pricing">Disponible pour <strong>€ <t t-esc="request.env['product.product'].with_context(pricelist=49).search([('id','=',156)]).price"/> </strong></p>
-                      <br/>
-                    </td>
-                  </tr>
-                </table>
-                <p>
-                  <a data-type="HEO" class="btn btn-buy" href="#">Voir ce produit</a>
-                </p>
-
-				</div>
-              <div t-if="request.context.get('lang')=='fr_BE'" id="HEM" style="display: none;">
-                <table>
-                  <tr>
-                    <td align="center" valign="center" width="150px">
-                      <img src="/website/image/ir.attachment/25159_f9c32f6/datas"/>
-                    </td>
-                    <td align="left">
-                      <h4>Honeywell Evohome Single Zone Modulation</h4>
-                      <div style="color: green;">
-                        <small><span class="fa fa-check "/> Marque fiable et renommée<br/><span class="fa fa-check "/> Un système décentralisé<br/><span class="fa fa-check "/> Destiné aux chaudières compatibles avec OpenTherm</small>
-                      </div>
-                      <p class="pricing">Disponible pour <strong>€ <t t-esc="request.env['product.product'].with_context(pricelist=49).search([('id','=',155)]).price"/> </strong></p>
-                      <br/>
-                    </td>
-                  </tr>
-                </table>
-                <p>
-                  <a data-type="HEM" class="btn btn-buy" href="#">Voir ce produit</a>
-                </p>
-              </div>
-              <div t-if="request.context.get('lang')=='fr_BE'" id="4P" style="display: none;">
-                <table>
-                  <tr>
-                    <td align="center" valign="center" width="150px">
-                      <img src="/website/image/ir.attachment/25164_5e4b6e1/datas"/>
-                      <br/>
-                      <img src="/website/image/ir.attachment/25165_b977587/datas"/>
-                    </td>
-                    <td align="left">
-                      <h4>Avec <span id="4P_Q"> </span> pack de 4 têtes de radiateur Evohome</h4>
-                      <div style="color: green;">
-                        <small><span class="fa fa-check "/> Prix avantageux<br/>
-                        <span class="fa fa-check "/> Une tête est nécessaire par radiateur</small>
-                      </div>
-                      <p class="pricing">Disponible pour <strong>€ <t t-esc="request.env['product.product'].with_context(pricelist=49).search([('id','=',205)]).price"/> </strong></p>
-                      <br/>
-                    </td>
-                  </tr>
-                </table>
-                <p>
-                  <a data-type="HTRV" class="btn btn-buy" href="#">Voir ce produit</a>
-                </p>
-              </div>
-              <div t-if="request.context.get('lang')=='fr_BE'" id="HTRV" style="display: none;">
-                <table>
-                  <tr>
-                    <td align="center" valign="center" width="150px">
-                      <img src="/website/image/ir.attachment/25164_5e4b6e1/datas"/>
-                      <br/>
-                      <img src="/website/image/ir.attachment/25166_2d6fcc8/datas"/>
-                    </td>
-                    <td align="left">
-                      <h4>Avec <span id="HTRV_Q"> </span> Tête(s) de radiateur Evohome</h4>
-                      <div style="color: green;">
-                        <small><span class="fa fa-check "/> La tête contient un thermomètre <br/>
-                        <span class="fa fa-check "/> Ecran et bouton rotatif inclus <br/>
-                        <span class="fa fa-check "/> Une tête est nécessaire par radiateur</small>
-                      </div>
-                      <p class="pricing">Disponible pour <strong>€ <t t-esc="request.env['product.product'].with_context(pricelist=49).search([('id','=',153)]).price"/> </strong></p>
-                      <br/>
-                    </td>
-                  </tr>
-                </table>
-                <p>
-                  <a data-type="HTRV" class="btn btn-buy" href="#">Voir ce produit</a>
-                </p>
-              </div>
-			  <div t-if="request.context.get('lang')=='nl_BE'" id="HEO" style="display: none;">
-
-
-				<table>
-                  <tr>
-                    <td align="center" valign="center" width="150px">
-                      <img src="/website/image/ir.attachment/25159_f9c32f6/datas"/>
-                    </td>
-                    <td align="left">
-                      <h4>Honeywell Evohome On-Off Pakket</h4>
-                      <div style="color: green;">
-                        <small><span class="fa fa-check "/> Betrouwbaar merk <br/>
-                        <span class="fa fa-check "/> Decentrale verwarming</small>
-                      </div>
-                      <p class="pricing">Nu verkrijgbaar vanaf <strong>€ <t t-esc="request.env['product.product'].with_context(pricelist=49).search([('id','=',156)]).price"/> </strong></p>
-                      <br/>
-                    </td>
-                  </tr>
-                </table>
-                <p>
-                  <a data-type="HEO" class="btn btn-buy" href="#">Bekijk product</a>
-                </p>
-
-			  </div>
-              <div t-if="request.context.get('lang')=='nl_BE'" id="HEM" style="display: none;">
-                <table>
-                  <tr>
-                    <td align="center" valign="center" width="150px">
-                      <img src="/website/image/ir.attachment/25159_f9c32f6/datas"/>
-                    </td>
-                    <td align="left">
-                      <h4>Honeywell Evohome Modulation Pakket</h4>
-                      <div style="color: green;">
-                        <small><span class="fa fa-check "/> Vertrouwbare merk<br/><span class="fa fa-check "/> Decentrale verwarming<br/><span class="fa fa-check "/> Geschikt voor OpenTherm ketels</small>
-                      </div>
-                      <p class="pricing">Nu verkrijgbaar vanaf <strong>€ <t t-esc="request.env['product.product'].with_context(pricelist=49).search([('id','=',155)]).price"/> </strong></p>
-                      <br/>
-                    </td>
-                  </tr>
-                </table>
-                <p>
-                  <a data-type="HEM" class="btn btn-buy" href="#">Bekijk product</a>
-                </p>
-              </div>
-              <div t-if="request.context.get('lang')=='nl_BE'" id="4P" style="display: none;">
-                <table>
-                  <tr>
-                    <td align="center" valign="center" width="150px">
-                      <img src="/website/image/ir.attachment/25164_5e4b6e1/datas"/>
-                      <br/>
-                      <img src="/website/image/ir.attachment/25165_b977587/datas"/>
-                    </td>
-                    <td align="left">
-                      <h4>Met <span id="4P_Q"> </span> Voordeelpakket Evohome TRV (4 stukken)</h4>
-                      <div style="color: green;">
-                        <small><span class="fa fa-check "/> Voordelige prijs<br/>
-                        <span class="fa fa-check "/> Eén TRV per radiator die aangestuurd moet worden</small>
-                      </div>
-                      <p class="pricing">Nu verkrijgbaar vanaf <strong>€ <t t-esc="request.env['product.product'].with_context(pricelist=49).search([('id','=',205)]).price"/> </strong></p>
-                      <br/>
-                    </td>
-                  </tr>
-                </table>
-                <p>
-                  <a data-type="HTRV" class="btn btn-buy" href="#">Bekijk product</a>
-                </p>
-              </div>
-              <div id="HTRV" style="display: none;">
-                <table>
-                  <tr>
-                    <td align="center" valign="center" width="150px">
-                      <img src="/website/image/ir.attachment/25164_5e4b6e1/datas"/>
-                      <br/>
-                      <img src="/website/image/ir.attachment/25166_2d6fcc8/datas"/>
-                    </td>
-                    <td align="left">
-                      <h4>Met <span id="HTRV_Q"> </span> Honeywell Evohome TRV</h4>
-                      <div style="color: green;">
-                        <small><span class="fa fa-check "/> Thermostaat in TRV ingebouwd <br/>
-                        <span class="fa fa-check "/> Met display en handige draaiknop <br/>
-                        <span class="fa fa-check "/> Eén TRV per radiator die aangestuurd moet worden</small>
-                      </div>
-                      <p class="pricing">Nu verkrijgbaar vanaf <strong>€ <t t-esc="request.env['product.product'].with_context(pricelist=49).search([('id','=',153)]).price"/> </strong></p>
-                      <br/>
-                    </td>
-                  </tr>
-                </table>
-                <p>
-                  <a data-type="HTRV" class="btn btn-buy" href="#">Bekijk product</a>
-                </p>
-              </div>
-			</div>
-
-            <!-- /#HEV -->
-
-          </section>
-          <!-- /#SolutionBlock -->
-	</div>
-	<div t-if="request.context.get('lang')=='fr_BE'">		
-		<section>
-          <div align="center">
-            <p>
-              <br/>
-              <a id="Reset" class="btn btn-default" href="#"><i class="fa fa-refresh"/> Recommencer à zéro</a>
-            </p>
-            <p>Vous désirez plus d'information ou de l'aide ? Dirigez-vous vers <a href="../page/hulp-service">notre service d'aide</a>.</p>
-            <div id="DebugBlock" style="display: none;">
-              <small> Debug </small>
-            </div>
-          </div>
-        </section>
-	</div>
-	<div t-if="request.context.get('lang')=='nl_BE'">	
-		        <section>
-          <div align="center">
-            <p>
-              <br/>
-              <a id="Reset" class="btn btn-default" href="#"><i class="fa fa-refresh"/> Begin opnieuw</a>
-            </p>
-            <p>Kom je er toch niet helemaal uit? Kijk dan eens <a href="../page/hulp-service">in ons service-gedeelte</a>.</p>
-            <div id="DebugBlock" style="display: none;">
-              <small> Debug </small>
-            </div>
-          </div>
-        </section>
-	</div>	
-	</div>
-	</section>
-	
-	
-  </t>
+    </t>
   <script>
-  <![CDATA[
-!function(e,t){var a=function(e){switch(setCurrentQuestion(e),sessionStorage.chain){case"No_Wifi.Independent_Boiler.Q7A.Q7B":solution("NO",null);break;case"No_Wifi.Control_Boiler.Central_Heating.Suitable_Fuel.OnOff.Q7A.Q7B":solution("NO",null);break;case"No_Wifi.Control_Boiler.Central_Heating.Suitable_Fuel.OpenTherm":solution("NO",null);break;case"No_Wifi.Control_Boiler.Central_Heating.Electrical_Fuel":solution("NO",null);break;case"No_Wifi.Control_Boiler.City_Heating.With_Thermostat.Q7A.Q7B":solution("NO",null);break;case"No_Wifi.Control_Boiler.City_Heating.Without_Thermostat":solution("NO",null);break;case"Wifi.Centrally.Central_Heating.Suitable_Fuel.OpenTherm":solution("HRM",null);break;case"Wifi.Centrally.Central_Heating.Suitable_Fuel.OnOff":solution("HRO",null),solution("NET",null),solution("BOX",null);break;case"Wifi.Centrally.Central_Heating.Electrical_Fuel":solution("NO",null);break;case"Wifi.Centrally.City_Heating.With_Thermostat":solution("HRO",null),solution("NET",null),solution("BOX",null);break;case"Wifi.Centrally.City_Heating.Without_Thermostat":solution("NO",null);break;case"Wifi.Centrally.Control_Boiler.City_Heating.Without_Thermostat":solution("NO",null);break;case"Wifi.Decentrally.Radiators.Valves_NotSuitable":solution("SWAP",null);break;case"Wifi.Decentrally.Radiators.Valves_Suitable.Q7A.Q7B":solution("NO",null);break;case"Wifi.Decentrally.Radiators.Valves_Suitable.Central_Heating.Suitable_Fuel.OnOff.Q7A.Q7B":solution("HEO","HP");break;case"Wifi.Decentrally.Radiators.Valves_Suitable.Central_Heating.Suitable_Fuel.OpenTherm.Q7A.Q7B":solution("HEM","HP");break;case"Wifi.Decentrally.Radiators.Valves_Suitable.Central_Heating.Electrical_Fuel":solution("NO",null);break;case"Wifi.Decentrally.Radiators.Valves_Suitable.City_Heating.Without_Thermostat":solution("NO",null);break;case"Wifi.Decentrally.Radiators.Valves_Suitable.City_Heating.With_Thermostat.Q7A.Q7B":solution("HEO","HP");break;case"Wifi.Decentrally.Underfloor_Heating":solution("SWAP",null);break;case"No_Wifi":solution("NO",null);break;case"No_Wifi.Control_Boiler.Central_Heating":question("Q5C");break;case"No_Wifi.Control_Boiler.Central_Heating.Suitable_Fuel":question("Q5D");break;case"No_Wifi.Control_Boiler.Central_Heating.Suitable_Fuel.OnOff":question("Q7");break;case"No_Wifi.Control_Boiler.City_Heating":question("Q5B");break;case"No_Wifi.Control_Boiler.City_Heating.With_Thermostat":question("Q7");break;case"Wifi":question("Q2");break;case"Wifi.Centrally":question("Q5A");break;case"Wifi.Centrally.Central_Heating":question("Q5C");break;case"Wifi.Centrally.Central_Heating.Suitable_Fuel":question("Q5D");break;case"Wifi.Centrally.City_Heating":question("Q5B");break;case"Wifi.Decentrally":question("Q3A");break;case"Wifi.Decentrally.Radiators":question("Q3B");break;case"Wifi.Decentrally.Radiators.Valves_Suitable":question("Q5A");break;case"Wifi.Decentrally.Radiators.Valves_Suitable":question("Q5A");break;case"Wifi.Decentrally.Radiators.Valves_Suitable.Central_Heating":question("Q5C");break;case"Wifi.Decentrally.Radiators.Valves_Suitable.Central_Heating.Suitable_Fuel":question("Q5D");break;case"Wifi.Decentrally.Radiators.Valves_Suitable.Central_Heating.Suitable_Fuel.OnOff":question("Q7");break;case"Wifi.Decentrally.Radiators.Valves_Suitable.Central_Heating.Suitable_Fuel.OnOff.Distant_Control":question("Q7");break;case"Wifi.Decentrally.Radiators.Valves_Suitable.Central_Heating.Suitable_Fuel.OnOff.Local_Control":question("Q7");break;case"Wifi.Decentrally.Radiators.Valves_Suitable.Central_Heating.Suitable_Fuel.OpenTherm":question("Q7");break;case"Wifi.Decentrally.Radiators.Valves_Suitable.City_Heating":question("Q5B");break;case"Wifi.Decentrally.Radiators.Valves_Suitable.City_Heating.With_Thermostat":question("Q7");break;case"":location.reload();break;default:if(sessionStorage.ErrorLog+=1,sessionStorage.ErrorLog>10){tempTextChain=sessionStorage.chain,sessionStorage.chain=sessionStorage.chain+".___BUG___",postToGoogle(),sessionStorage.chain=tempTextChain,location.reload();break}tempElement=n(),a(tempElement)}},n=function(){var e=sessionStorage.chain.slice(sessionStorage.chain.lastIndexOf(".")+1);switch(e){case"Wifi":return modifyChainAfterChange("No_Wifi","Q1",e);case"No_Wifi":return modifyChainAfterChange("Wifi","Q1",e);case"Centrally":return modifyChainAfterChange("Decentrally","Q2",e);case"Decentrally":return modifyChainAfterChange("Centrally","Q2",e);case"Radiators":return modifyChainAfterChange("Underfloor_Heating","Q3A",e);case"Underfloor_Heating":return modifyChainAfterChange("Radiators","Q3A",e);case"Valves_Suitable":return modifyChainAfterChange("Valves_NotSuitable","Q3B",e);case"Valves_NotSuitable":return modifyChainAfterChange("Valves_Suitable","Q3B",e);case"Control_Boiler":return modifyChainAfterChange("Independent_Boiler","Q4",e);case"Independent_Boiler":return modifyChainAfterChange("Control_Boiler","Q4",e);case"Central_Heating":return modifyChainAfterChange("City_Heating","Q5A",e);case"City_Heating":return modifyChainAfterChange("Central_Heating","Q5A",e);case"With_Thermostat":return modifyChainAfterChange("Without_Thermostat","Q5B",e);case"Without_Thermostat":return modifyChainAfterChange("With_Thermostat","Q5B",e);case"Suitable_Fuel":return modifyChainAfterChange("Electrical_Fuel","Q5C",e);case"Electrical_Fuel":return modifyChainAfterChange("Suitable_Fuel","Q5C",e);case"OnOff":return modifyChainAfterChange("OpenTherm","Q5D",e);case"OpenTherm":return modifyChainAfterChange("OnOff","Q5D",e);case"Distant_Control":return modifyChainAfterChange("Local_Control","Q6",e);case"Local_Control":return modifyChainAfterChange("Distant_Control","Q6",e);case"Q7B":return modifyChainAfterChange("Q7A","Q7","Q7A.Q7B")}};modifyChainAfterChange=function(e,t,a){var n=sessionStorage.chain.search(e);sessionStorage.chain=sessionStorage.chain.slice(0,n),sessionStorage.chain=sessionStorage.chain+a,setCurrentQuestion(t)},cutSessionStorageChain=function(){var e=sessionStorage.chain.lastIndexOf("."),t=sessionStorage.chain.length;sessionStorage.chain=sessionStorage.chain.slice(0,t-(t-e))},setCurrentQuestion=function(t){var a=e("#"+t),n=a.closest("section").attr("id");e("#"+n).nextAll().removeClass("is-chosen").fadeOut(),e("#SB2, #SA2, #NO, #HRM, #HRO, #NET, #S500, #SWAP, #SB1, #SA1, #HEO, #HEM, #HTRV, #STRV, #STH, #4P, #SiT600, #HEV").hide()},solution=function(t){if(sessionStorage.ErrorLog=0,e("#SolutionBlock").fadeIn("slow"),e("html, body").animate({scrollTop:e("#SolutionBlock").offset().top},1e3),e("#"+t).fadeIn("slow"),sessionStorage.Q7A>1&&(e("#STH").fadeIn("slow"),e("#STH_Q").text(sessionStorage.Q7A-1)),sessionStorage.Q7B-sessionStorage.Q7A>0&&(e("#STRV").fadeIn("slow"),e("#STRV_Q").text(sessionStorage.Q7B-sessionStorage.Q7A)),sessionStorage.Q7B>0&&("HEM"==t||"HEO"==t)&&(sessionStorage.Q7B%4>0&&(e("#HTRV").fadeIn("slow"),e("#HTRV_Q").text(sessionStorage.Q7B%4)),(sessionStorage.Q7B-sessionStorage.Q7B%4)/4&&(e("#4P").fadeIn("slow"),e("#4P_Q").text((sessionStorage.Q7B-sessionStorage.Q7B%4)/4))),arguments.length>1)switch(arguments[1]){case"SP":e("#SiT600").fadeIn("slow"),e("#AddToCart_iT600").data("type",t);break;case"HP":e("#HEV").fadeIn("slow"),e("#AddToCart_HEV").data("type",t)}"on"==sessionStorage.debug&&(e("#DebugBlock").fadeIn("slow"),e("#DebugBlock").text(sessionStorage.chain)),"true"!=sessionStorage.posted&&(postToGoogle(),sessionStorage.posted="true")},question=function(t){sessionStorage.ErrorLog=0,e("#"+t).fadeIn("slow");var a,n=e("#"+t).offset().top,o=e("#"+t).height(),i=e(window).height();a=i>o?n-(i/2-o/2):n,e("html, body").animate({scrollTop:a},1e3)},hideElement=function(t){e("#"+t).fadeOut("slow")},updateTextInput=function(e,t){document.getElementById(t).value=e},goToProductPage=function(e){return val=returnProductLink(e),window.open(val,"_blank","fullscreen=yes",!1),val},returnProductCode=function(e){switch(e){case"SB2":val=252;break;case"SA2":val=266;break;case"HRM":val=121;break;case"HRO":val=159;break;case"NET":val=75;break;case"S500":val=304;break;case"SB1":val=147;break;case"SA1":val=260;break;case"HEO":val=156;break;case"HEM":val=155;break;case"HTRV":val=153;break;case"STRV":val=53;break;case"STH":val=60;break;case"4P":val=205;break;default:val=76}return val},returnProductLink=function(e){switch(e){case"SB2":val="../shop/product/salus-it600-kamer-verwarming-79";break;case"SA2":val="../shop/product/salus-it600-cv-pakket-84";break;case"HRM":val="../shop/product/honeywell-round-mod-thermostaat-130";break;case"HRO":val="../shop/product/honeywell-round-onoff-thermostaat-131";break;case"NET":val="../shop/product/netatmo-thermostaat-90";break;case"S500":val="../shop/product/salus-it500-internet-thermostaat-215";break;case"SB1":val="../shop/product/salus-it600-internet-pakket-85";break;case"SA1":val="../shop/product/salus-it600-internet-cv-pakket-80";break;case"HEO":val="../shop/product/honeywell-evohome-pakket-on-off-128";break;case"HEM":val="../shop/product/honeywell-evohome-pakket-mod-127";break;case"HTRV":val="../shop/product/honeywell-radiatorregelaar-hr92we-129";break;case"STRV":val="../shop/product/salus-it600-thermostatische-kraan-83";break;case"STH":val="../shop/product/salus-it600-extra-kamer-pakket-88";break;case"4P":val="../shop/product/4-pack-honeywell-radiatorregelaar-168";break;case"BOX":val="../shop/product/boxx-thermostaat-energiemonitor-met-installatie-273";break;default:val="../shop/category/verwarming-2"}return val},postToGoogle=function(){var t=sessionStorage.chain;sessionStorage.Q7A&&(t=t+"."+sessionStorage.Q7A),sessionStorage.Q7B&&(t=t+"."+sessionStorage.Q7B),e.ajax({cache:!1,crossDomain:!0,url:"https://docs.google.com/forms/d/1c7UhOS86Odc2IS8nCfY_sRm5bN05cM-ZXaJ7RepT3nQ/formResponse",type:"POST",dataType:"xml",data:{"entry.995959891":t}})},e(function(){e(".question .actions").each(function(){var t=e("a:not(.btn-default)",this);t.click(function(){t.removeClass("is-chosen"),e(this).addClass("is-chosen")})}),e(".range-field").each(function(){var t=e(".rangeSlider",this),a=e(".value",this).text(0),n=t.data("target");t.on("change mousemove",function(){a.text(e(this).val()),e("#"+n).val(e(this).val())})}),e(".product-card").each(function(){e(".btn",this).click(function(){return goToProductPage(e(this).data("type")),!1})}),sessionStorage.debug="off",sessionStorage.posted="false",document.getElementById("Q2_video").onclick=function(){question("video_CvsD")},document.getElementById("Q5D_video").onclick=function(){question("video_OOvsOT")},document.getElementById("Q1_Wifi").onclick=function(){sessionStorage.chain="Wifi",a("Q1_Wifi")},document.getElementById("Q1_No_Wifi").onclick=function(){sessionStorage.chain="No_Wifi",a("Q1_No_Wifi")},document.getElementById("Q2_Centrally").onclick=function(){sessionStorage.chain=sessionStorage.chain+".Centrally",hideElement("video_CvsD"),a("Q2_Centrally")},document.getElementById("Q2_Decentrally").onclick=function(){sessionStorage.chain=sessionStorage.chain+".Decentrally",hideElement("video_CvsD"),a("Q2_Decentrally")},document.getElementById("Q3A_Radiators").onclick=function(){sessionStorage.chain=sessionStorage.chain+".Radiators",a("Q3A_Radiators")},document.getElementById("Q3A_Underfloor_Heating").onclick=function(){sessionStorage.chain=sessionStorage.chain+".Underfloor_Heating",a("Q3A_Underfloor_Heating")},document.getElementById("Q3B_Valves_Suitable").onclick=function(){sessionStorage.chain=sessionStorage.chain+".Valves_Suitable",a("Q3B_Valves_Suitable")},document.getElementById("Q3B_Valves_NotSuitable").onclick=function(){sessionStorage.chain=sessionStorage.chain+".Valves_NotSuitable",a("Q3B_Valves_NotSuitable")},document.getElementById("Q4_Control_Boiler").onclick=function(){sessionStorage.chain=sessionStorage.chain+".Control_Boiler",a("Q4_Control_Boiler")},document.getElementById("Q4_Independent_Boiler").onclick=function(){sessionStorage.chain=sessionStorage.chain+".Independent_Boiler",a("Q4_Independent_Boiler")},document.getElementById("Q5A_Central_Heating").onclick=function(){sessionStorage.chain=sessionStorage.chain+".Central_Heating",a("Q5A_Central_Heating")},document.getElementById("Q5A_City_Heating").onclick=function(){sessionStorage.chain=sessionStorage.chain+".City_Heating",a("Q5A_City_Heating")},document.getElementById("Q5B_With_Thermostat").onclick=function(){sessionStorage.chain=sessionStorage.chain+".With_Thermostat",a("Q5B_With_Thermostat")},document.getElementById("Q5B_Without_Thermostat").onclick=function(){sessionStorage.chain=sessionStorage.chain+".Without_Thermostat",a("Q5B_Without_Thermostat")},document.getElementById("Q5C_Suitable_Fuel").onclick=function(){sessionStorage.chain=sessionStorage.chain+".Suitable_Fuel",a("Q5C_Suitable_Fuel")},document.getElementById("Q5C_Electrical_Fuel").onclick=function(){sessionStorage.chain=sessionStorage.chain+".Electrical_Fuel",a("Q5C_Electrical_Fuel")},document.getElementById("Q5D_OnOff").onclick=function(){sessionStorage.chain=sessionStorage.chain+".OnOff",hideElement("video_OOvsOT"),a("Q5D_OnOff")},document.getElementById("Q5D_OpenTherm").onclick=function(){sessionStorage.chain=sessionStorage.chain+".OpenTherm",hideElement("video_OOvsOT"),a("Q5D_OpenTherm")},document.getElementById("Q6_Distant_Control").onclick=function(){sessionStorage.chain=sessionStorage.chain+".Distant_Control",a("Q6_Distant_Control")},document.getElementById("Q6_Local_Control").onclick=function(){sessionStorage.chain=sessionStorage.chain+".Local_Control",a("Q6_Local_Control")},document.getElementById("Q7_Next").onclick=function(){sessionStorage.chain=sessionStorage.chain+".Q7A.Q7B",sessionStorage.Q7A=document.getElementById("Q7_Number_Rooms").value,sessionStorage.Q7B=document.getElementById("Q7_Number_Radiators").value,a("Q7_Next")},document.getElementById("Reset").onclick=function(){sessionStorage.chain="",a("")}})}(jQuery);
-
-	  ]]>
+  
+!function(a,b){var c=function(a){switch(setCurrentQuestion(a),sessionStorage.chain){case"No_Wifi.Independent_Boiler.Q7A.Q7B":solution("SB2","SP");break;case"No_Wifi.Control_Boiler.Central_Heating.Suitable_Fuel.OnOff.Q7A.Q7B":solution("SA2","SP");break;case"No_Wifi.Control_Boiler.Central_Heating.Suitable_Fuel.OpenTherm":solution("NO",null);break;case"No_Wifi.Control_Boiler.Central_Heating.Electrical_Fuel":solution("NO",null);break;case"No_Wifi.Control_Boiler.City_Heating.With_Thermostat.Q7A.Q7B":solution("SA2","SP");break;case"No_Wifi.Control_Boiler.City_Heating.Without_Thermostat":solution("NO",null);break;case"Wifi.Centrally.Central_Heating.Suitable_Fuel.OpenTherm":solution("NES",null),solution("HRM",null);break;case"Wifi.Centrally.Central_Heating.Suitable_Fuel.OnOff":solution("NES",null),solution("HRO",null),solution("NET",null),solution("S500",null);break;case"Wifi.Centrally.Central_Heating.Electrical_Fuel":solution("NO",null);break;case"Wifi.Centrally.City_Heating.With_Thermostat":solution("NES",null),solution("HRO",null),solution("NET",null),solution("S500");break;case"Wifi.Centrally.City_Heating.Without_Thermostat":solution("NO",null);break;case"Wifi.Centrally.Control_Boiler.City_Heating.Without_Thermostat":solution("NO",null);break;case"Wifi.Decentrally.Radiators.Valves_NotSuitable":solution("SWAP",null);break;case"Wifi.Decentrally.Radiators.Valves_Suitable.Independent_Boiler.Distant_Control.Q7A.Q7B":solution("SB1","SP");break;case"Wifi.Decentrally.Radiators.Valves_Suitable.Independent_Boiler.Local_Control.Q7A.Q7B":solution("SB2","SP");break;case"Wifi.Decentrally.Radiators.Valves_Suitable.Control_Boiler.Central_Heating.Suitable_Fuel.OnOff.Local_Control.Q7A.Q7B":solution("SA2","SP");break;case"Wifi.Decentrally.Radiators.Valves_Suitable.Control_Boiler.Central_Heating.Suitable_Fuel.OnOff.Distant_Control.Q7A.Q7B":solution("SA1","SP"),solution("HEO","HP");break;case"Wifi.Decentrally.Radiators.Valves_Suitable.Control_Boiler.Central_Heating.Suitable_Fuel.OpenTherm.Q7A.Q7B":solution("HEM","HP");break;case"Wifi.Decentrally.Radiators.Valves_Suitable.Control_Boiler.Central_Heating.Electrical_Fuel":solution("NO",null);break;case"Wifi.Decentrally.Radiators.Valves_Suitable.Control_Boiler.City_Heating.Without_Thermostat":solution("NO",null);break;case"Wifi.Decentrally.Radiators.Valves_Suitable.Control_Boiler.City_Heating.With_Thermostat.Local_Control.Q7A.Q7B":solution("SA2","SP");break;case"Wifi.Decentrally.Radiators.Valves_Suitable.Control_Boiler.City_Heating.With_Thermostat.Distant_Control.Q7A.Q7B":solution("SA1","SP"),solution("HEO","SP");break;case"Wifi.Decentrally.Underfloor_Heating":solution("SWAP",null);break;case"No_Wifi":question("Q4");break;case"No_Wifi.Independent_Boiler":question("Q7");break;case"No_Wifi.Control_Boiler":question("Q5A");break;case"No_Wifi.Control_Boiler.Central_Heating":question("Q5C");break;case"No_Wifi.Control_Boiler.Central_Heating.Suitable_Fuel":question("Q5D");break;case"No_Wifi.Control_Boiler.Central_Heating.Suitable_Fuel.OnOff":question("Q7");break;case"No_Wifi.Control_Boiler.City_Heating":question("Q5B");break;case"No_Wifi.Control_Boiler.City_Heating.With_Thermostat":question("Q7");break;case"Wifi":question("Q2");break;case"Wifi.Centrally":question("Q5A");break;case"Wifi.Centrally.Central_Heating":question("Q5C");break;case"Wifi.Centrally.Central_Heating.Suitable_Fuel":question("Q5D");break;case"Wifi.Centrally.City_Heating":question("Q5B");break;case"Wifi.Decentrally":question("Q3A");break;case"Wifi.Decentrally.Radiators":question("Q3B");break;case"Wifi.Decentrally.Radiators.Valves_Suitable":question("Q4");break;case"Wifi.Decentrally.Radiators.Valves_Suitable.Independent_Boiler":question("Q6");break;case"Wifi.Decentrally.Radiators.Valves_Suitable.Independent_Boiler.Distant_Control":question("Q7");break;case"Wifi.Decentrally.Radiators.Valves_Suitable.Independent_Boiler.Local_Control":question("Q7");break;case"Wifi.Decentrally.Radiators.Valves_Suitable.Control_Boiler":question("Q5A");break;case"Wifi.Decentrally.Radiators.Valves_Suitable.Control_Boiler.Central_Heating":question("Q5C");break;case"Wifi.Decentrally.Radiators.Valves_Suitable.Control_Boiler.Central_Heating.Suitable_Fuel":question("Q5D");break;case"Wifi.Decentrally.Radiators.Valves_Suitable.Control_Boiler.Central_Heating.Suitable_Fuel.OnOff":question("Q6");break;case"Wifi.Decentrally.Radiators.Valves_Suitable.Control_Boiler.Central_Heating.Suitable_Fuel.OnOff.Distant_Control":question("Q7");break;case"Wifi.Decentrally.Radiators.Valves_Suitable.Control_Boiler.Central_Heating.Suitable_Fuel.OnOff.Local_Control":question("Q7");break;case"Wifi.Decentrally.Radiators.Valves_Suitable.Control_Boiler.Central_Heating.Suitable_Fuel.OpenTherm":question("Q7");break;case"Wifi.Decentrally.Radiators.Valves_Suitable.Control_Boiler.City_Heating":question("Q5B");break;case"Wifi.Decentrally.Radiators.Valves_Suitable.Control_Boiler.City_Heating.With_Thermostat":question("Q6");break;case"Wifi.Decentrally.Radiators.Valves_Suitable.Control_Boiler.City_Heating.With_Thermostat.Distant_Control":question("Q7");break;case"Wifi.Decentrally.Radiators.Valves_Suitable.Control_Boiler.City_Heating.With_Thermostat.Local_Control":question("Q7");break;case"":location.reload();break;default:if(sessionStorage.ErrorLog+=1,sessionStorage.ErrorLog&gt;10){tempTextChain=sessionStorage.chain,sessionStorage.chain=sessionStorage.chain+".___BUG___",postToGoogle(),sessionStorage.chain=tempTextChain,location.reload();break}tempElement=d(),c(tempElement)}},d=function(){var a=sessionStorage.chain.slice(sessionStorage.chain.lastIndexOf(".")+1);switch(a){case"Wifi":return modifyChainAfterChange("No_Wifi","Q1",a);case"No_Wifi":return modifyChainAfterChange("Wifi","Q1",a);case"Centrally":return modifyChainAfterChange("Decentrally","Q2",a);case"Decentrally":return modifyChainAfterChange("Centrally","Q2",a);case"Radiators":return modifyChainAfterChange("Underfloor_Heating","Q3A",a);case"Underfloor_Heating":return modifyChainAfterChange("Radiators","Q3A",a);case"Valves_Suitable":return modifyChainAfterChange("Valves_NotSuitable","Q3B",a);case"Valves_NotSuitable":return modifyChainAfterChange("Valves_Suitable","Q3B",a);case"Control_Boiler":return modifyChainAfterChange("Independent_Boiler","Q4",a);case"Independent_Boiler":return modifyChainAfterChange("Control_Boiler","Q4",a);case"Central_Heating":return modifyChainAfterChange("City_Heating","Q5A",a);case"City_Heating":return modifyChainAfterChange("Central_Heating","Q5A",a);case"With_Thermostat":return modifyChainAfterChange("Without_Thermostat","Q5B",a);case"Without_Thermostat":return modifyChainAfterChange("With_Thermostat","Q5B",a);case"Suitable_Fuel":return modifyChainAfterChange("Electrical_Fuel","Q5C",a);case"Electrical_Fuel":return modifyChainAfterChange("Suitable_Fuel","Q5C",a);case"OnOff":return modifyChainAfterChange("OpenTherm","Q5D",a);case"OpenTherm":return modifyChainAfterChange("OnOff","Q5D",a);case"Distant_Control":return modifyChainAfterChange("Local_Control","Q6",a);case"Local_Control":return modifyChainAfterChange("Distant_Control","Q6",a);case"Q7B":return modifyChainAfterChange("Q7A","Q7","Q7A.Q7B")}};modifyChainAfterChange=function(a,b,c){var d=sessionStorage.chain.search(a);sessionStorage.chain=sessionStorage.chain.slice(0,d),sessionStorage.chain=sessionStorage.chain+c,setCurrentQuestion(b)},cutSessionStorageChain=function(){var a=sessionStorage.chain.lastIndexOf("."),b=sessionStorage.chain.length;sessionStorage.chain=sessionStorage.chain.slice(0,b-(b-a))},setCurrentQuestion=function(b){var c=a("#"+b),d=c.closest("section").attr("id");a("#"+d).nextAll().removeClass("is-chosen").fadeOut(),a("#NES, #SB2, #SA2, #NO, #HRM, #HRO, #NET, #S500, #SWAP, #SB1, #SA1, #HEO, #HEM, #HTRV, #STRV, #STH, #4P, #SiT600, #HEV").hide()},solution=function(b){if(sessionStorage.ErrorLog=0,a("#SolutionBlock").fadeIn("slow"),a("html, body").animate({scrollTop:a("#SolutionBlock").offset().top},1e3),a("#"+b).fadeIn("slow"),sessionStorage.Q7A&gt;1&amp;&amp;(a("#STH").fadeIn("slow"),a("#STH_Q").text(sessionStorage.Q7A-1)),sessionStorage.Q7B-sessionStorage.Q7A&gt;0&amp;&amp;(a("#STRV").fadeIn("slow"),a("#STRV_Q").text(sessionStorage.Q7B-sessionStorage.Q7A)),sessionStorage.Q7B&gt;0&amp;&amp;("HEM"==b||"HEO"==b)&amp;&amp;(sessionStorage.Q7B%4&gt;0&amp;&amp;(a("#HTRV").fadeIn("slow"),a("#HTRV_Q").text(sessionStorage.Q7B%4)),(sessionStorage.Q7B-sessionStorage.Q7B%4)/4&amp;&amp;(a("#4P").fadeIn("slow"),a("#4P_Q").text((sessionStorage.Q7B-sessionStorage.Q7B%4)/4))),arguments.length&gt;1)switch(arguments[1]){case"SP":a("#SiT600").fadeIn("slow"),a("#AddToCart_iT600").data("type",b);break;case"HP":a("#HEV").fadeIn("slow"),a("#AddToCart_HEV").data("type",b)}"on"==sessionStorage.debug&amp;&amp;(a("#DebugBlock").fadeIn("slow"),a("#DebugBlock").text(sessionStorage.chain)),"true"!=sessionStorage.posted&amp;&amp;(postToGoogle(),sessionStorage.posted="true")},question=function(b){sessionStorage.ErrorLog=0,a("#"+b).fadeIn("slow");var f,c=a("#"+b).offset().top,d=a("#"+b).height(),e=a(window).height();f=d&lt;e?c-(e/2-d/2):c,a("html, body").animate({scrollTop:f},1e3)},hideElement=function(b){a("#"+b).fadeOut("slow")},updateTextInput=function(a,b){document.getElementById(b).value=a},goToProductPage=function(a){return val=returnProductLink(a),window.open(val,"_blank","fullscreen=yes",!1),val},returnProductCode=function(a){switch(a){case"SB2":val=252;break;case"SA2":val=266;break;case"HRM":val=121;break;case"HRO":val=159;break;case"NET":val=75;break;case"S500":val=304;break;case"SB1":val=147;break;case"SA1":val=260;break;case"HEO":val=156;break;case"HEM":val=155;break;case"HTRV":val=153;break;case"STRV":val=53;break;case"STH":val=60;break;case"4P":val=205;break;case"NES":val=485;break;default:val=76}return val},returnProductLink=function(a){switch(a){case"SB2":val="https://www.50five.com/shop/product/salus-it600-kamer-verwarming-79";break;case"SA2":val="https://www.50five.com/shop/product/salus-it600-cv-pakket-84";break;case"HRM":val="https://www.50five.com/shop/product/honeywell-round-mod-thermostaat-130";break;case"HRO":val="https://www.50five.com/shop/product/honeywell-round-onoff-thermostaat-131";break;case"NET":val="https://www.50five.com/shop/product/netatmo-thermostaat-90";break;case"S500":val="https://www.50five.com/shop/product/salus-it500-internet-thermostaat-215";break;case"SB1":val="https://www.50five.com/shop/product/salus-it600-internet-pakket-85";break;case"SA1":val="https://www.50five.com/shop/product/salus-it600-internet-cv-pakket-80";break;case"HEO":val="https://www.50five.com/shop/product/honeywell-evohome-pakket-on-off-128";break;case"HEM":val="https://www.50five.com/shop/product/honeywell-evohome-pakket-mod-127";break;case"HTRV":val="https://www.50five.com/shop/product/honeywell-radiatorregelaar-hr92we-129";break;case"STRV":val="https://www.50five.com/shop/product/salus-it600-thermostatische-kraan-83";break;case"STH":val="https://www.50five.com/shop/product/salus-it600-extra-kamer-pakket-88";break;case"4P":val="https://www.50five.com/shop/product/4-pack-honeywell-radiatorregelaar-168";break;case"NES":val="https://www.50five.com/shop/product/335";break;default:val="https://www.50five.com/shop/category/verwarming-2"}return val},postToGoogle=function(){var b=sessionStorage.chain;sessionStorage.Q7A&amp;&amp;(b=b+"."+sessionStorage.Q7A),sessionStorage.Q7B&amp;&amp;(b=b+"."+sessionStorage.Q7B),a.ajax({cache:!1,crossDomain:!0,url:"https://docs.google.com/forms/d/1c7UhOS86Odc2IS8nCfY_sRm5bN05cM-ZXaJ7RepT3nQ/formResponse",type:"POST",dataType:"xml",data:{"entry.995959891":b}})},a(function(){a(".question .actions").each(function(){var b=a("a:not(.btn-default)",this);b.click(function(){b.removeClass("is-chosen"),a(this).addClass("is-chosen")})}),a(".range-field").each(function(){var b=a(".rangeSlider",this),c=a(".value",this).text(0),d=b.data("target");b.on("change mousemove",function(){c.text(a(this).val()),a("#"+d).val(a(this).val())})}),a(".product-card").each(function(){a(".btn",this).click(function(){return goToProductPage(a(this).data("type")),!1})}),sessionStorage.debug="off",sessionStorage.posted="false",document.getElementById("Q2_video").onclick=function(){question("video_CvsD")},document.getElementById("Q5D_video").onclick=function(){question("video_OOvsOT")},document.getElementById("Q1_Wifi").onclick=function(){sessionStorage.chain="Wifi",c("Q1_Wifi")},document.getElementById("Q1_No_Wifi").onclick=function(){sessionStorage.chain="No_Wifi",c("Q1_No_Wifi")},document.getElementById("Q2_Centrally").onclick=function(){sessionStorage.chain=sessionStorage.chain+".Centrally",hideElement("video_CvsD"),c("Q2_Centrally")},document.getElementById("Q2_Decentrally").onclick=function(){sessionStorage.chain=sessionStorage.chain+".Decentrally",hideElement("video_CvsD"),c("Q2_Decentrally")},document.getElementById("Q3A_Radiators").onclick=function(){sessionStorage.chain=sessionStorage.chain+".Radiators",c("Q3A_Radiators")},document.getElementById("Q3A_Underfloor_Heating").onclick=function(){sessionStorage.chain=sessionStorage.chain+".Underfloor_Heating",c("Q3A_Underfloor_Heating")},document.getElementById("Q3B_Valves_Suitable").onclick=function(){sessionStorage.chain=sessionStorage.chain+".Valves_Suitable",c("Q3B_Valves_Suitable")},document.getElementById("Q3B_Valves_NotSuitable").onclick=function(){sessionStorage.chain=sessionStorage.chain+".Valves_NotSuitable",c("Q3B_Valves_NotSuitable")},document.getElementById("Q4_Control_Boiler").onclick=function(){sessionStorage.chain=sessionStorage.chain+".Control_Boiler",c("Q4_Control_Boiler")},document.getElementById("Q4_Independent_Boiler").onclick=function(){sessionStorage.chain=sessionStorage.chain+".Independent_Boiler",c("Q4_Independent_Boiler")},document.getElementById("Q5A_Central_Heating").onclick=function(){sessionStorage.chain=sessionStorage.chain+".Central_Heating",c("Q5A_Central_Heating")},document.getElementById("Q5A_City_Heating").onclick=function(){sessionStorage.chain=sessionStorage.chain+".City_Heating",c("Q5A_City_Heating")},document.getElementById("Q5B_With_Thermostat").onclick=function(){sessionStorage.chain=sessionStorage.chain+".With_Thermostat",c("Q5B_With_Thermostat")},document.getElementById("Q5B_Without_Thermostat").onclick=function(){sessionStorage.chain=sessionStorage.chain+".Without_Thermostat",c("Q5B_Without_Thermostat")},document.getElementById("Q5C_Suitable_Fuel").onclick=function(){sessionStorage.chain=sessionStorage.chain+".Suitable_Fuel",c("Q5C_Suitable_Fuel")},document.getElementById("Q5C_Electrical_Fuel").onclick=function(){sessionStorage.chain=sessionStorage.chain+".Electrical_Fuel",c("Q5C_Electrical_Fuel")},document.getElementById("Q5D_OnOff").onclick=function(){sessionStorage.chain=sessionStorage.chain+".OnOff",hideElement("video_OOvsOT"),c("Q5D_OnOff")},document.getElementById("Q5D_OpenTherm").onclick=function(){sessionStorage.chain=sessionStorage.chain+".OpenTherm",hideElement("video_OOvsOT"),c("Q5D_OpenTherm")},document.getElementById("Q6_Distant_Control").onclick=function(){sessionStorage.chain=sessionStorage.chain+".Distant_Control",c("Q6_Distant_Control")},document.getElementById("Q6_Local_Control").onclick=function(){sessionStorage.chain=sessionStorage.chain+".Local_Control",c("Q6_Local_Control")},document.getElementById("Q7_Next").onclick=function(){sessionStorage.chain=sessionStorage.chain+".Q7A.Q7B",sessionStorage.Q7A=document.getElementById("Q7_Number_Rooms").value,sessionStorage.Q7B=document.getElementById("Q7_Number_Radiators").value,c("Q7_Next")},document.getElementById("Reset").onclick=function(){sessionStorage.chain="",c("")}})}(jQuery);
+      
   </script>
-
-
 </t>

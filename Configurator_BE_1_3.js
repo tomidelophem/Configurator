@@ -246,22 +246,17 @@
 	
 	returnProductLink = function (ref) {
 		switch(ref){
-			case "SB2": { val = "../shop/product/salus-it600-kamer-verwarming-79"; break;};
-			case "SA2": { val = "../shop/product/salus-it600-cv-pakket-84"; break;};
-			case "HRM": { val = "../shop/product/honeywell-round-mod-thermostaat-130"; break;};
-			case "HRO": { val = "../shop/product/honeywell-round-onoff-thermostaat-131"; break;};
-			case "NET": { val = "../shop/product/netatmo-thermostaat-90"; break;};
-			case "S500": { val = "../shop/product/salus-it500-internet-thermostaat-215"; break;}; //87
-			case "SB1": { val = "../shop/product/salus-it600-internet-pakket-85"; break;};
-			case "SA1": { val = "../shop/product/salus-it600-internet-cv-pakket-80"; break;};
-			case "HEO": { val = "../shop/product/honeywell-evohome-pakket-on-off-128"; break;};
-			case "HEM": { val = "../shop/product/honeywell-evohome-pakket-mod-127"; break;};
-			case "HTRV": { val = "../shop/product/honeywell-radiatorregelaar-hr92we-129"; break;};
-			case "STRV": { val = "../shop/product/salus-it600-thermostatische-kraan-83"; break;};
-			case "STH": { val = "../shop/product/salus-it600-extra-kamer-pakket-88"; break;};
-			case "4P": { val = "../shop/product/4-pack-honeywell-radiatorregelaar-168"; break;};
-			case "BOX": {val = "../shop/product/boxx-thermostaat-energiemonitor-met-installatie-273"; break;};
-			default: { val = "../shop/category/verwarming-2"; break;};
+			
+			case "HRM": { val = "/shop/product/61"; break;};
+			case "HRO": { val = "/shop/product/62"; break;};
+			case "NET": { val = "/shop/product/91"; break;};
+			case "S500": { val = "/shop/product/5"; break;}; //87
+			case "HEO": { val = "/shop/product/10"; break;};
+			case "HEM": { val = "/shop/product/10"; break;};
+			case "HTRV": { val = "/shop/product/64"; break;};
+			case "4P": { val = "/shop/product/63"; break;};
+			case "BOX": {val = "/shop/product/15"; break;};
+			default: { val = "/shop/category/verwarming-2"; break;};
 		};
 		return val;
 	},
